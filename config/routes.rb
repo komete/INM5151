@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'pages/Cartes'
   get 'pages/Recherches'
   get 'pages/Offres'
-  root 'pages#acceuil'
+  get 'pages/Acceuil'
+  root 'pages#Acceuil'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
