@@ -1,3 +1,6 @@
+.authentification {
+  padding-top: 10px;
+}
 .form-signin
 {
   max-width: 330px;
@@ -42,16 +45,18 @@
 {
   margin-top: 20px;
   padding: 40px 0px 20px 0px;
-  background-color: #f7f7f7;
+  background-color: #fff;
   -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
 .login-title
 {
-  color: #555;
+  color: #005ce6;
   font-size: 18px;
   font-weight: 400;
+  font-weight: bold;
+  padding-right: 15px;
   display: block;
 }
 .profile-img
@@ -84,23 +89,4 @@
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center center;
-}
-.circle-mask {
-  display: block;
-  height: 96px;
-  width: 96px;
-  overflow: hidden;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 100;
-  margin-bottom: 10px;
-  background-size: 96px;
-  background-repeat: no-repeat;
-  background-image: url(https://ssl.gstatic.com/accounts/ui/avatar_2x.png);
-  -webkit-transition: opacity 0.075s;
-  -moz-transition: opacity 0.075s;
-  -ms-transition: opacity 0.075s;
-  -o-transition: opacity 0.075s;
-  transition: opacity 0.075s;
 }
