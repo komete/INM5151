@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
-  def Acceuil
+  def acceuil
 
   end
-  def Cartes
+  def cartes
 
   end
-  def Offres
+  def offres
 
   end
-  def Recherches
+  def recherches
 
   end
 end

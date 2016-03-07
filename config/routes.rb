@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/Signin'
+  root                'pages#acceuil'
+  get 'acceuil'    => 'pages#acceuil'
+  get 'cartes'     => 'pages#cartes'
+  get 'recherches' => 'pages#recherches'
+  get 'offres'     => 'pages#offres'
 
-  root                'pages#Acceuil'
-  get 'acceuil'    => 'pages#Acceuil'
-  get 'cartes'     => 'pages#Cartes'
-  get 'recherches' => 'pages#Recherches'
-  get 'offres'     => 'pages#Offres'
+  get 'signin'     => 'users#connect'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

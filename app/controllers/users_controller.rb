@@ -1,4 +1,4 @@
 class UsersController < ApplicationController
-  def Signin
+  def connect
   end
 end
