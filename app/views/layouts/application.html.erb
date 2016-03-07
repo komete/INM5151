@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>RoadQuest</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'logo.JPG.ico' %>
 </head>
 <body>
 
 <%= yield %>
-
+<div class="footer">
+  <div class="container center">
+    <div class="col-sm-offset-2 col-sm-10">
+      <p class="muted credit"> Contactez-nous: <a href="mailto:guillaume.remi@courrier.uqam.ca"> Remi Guillaume </a>,
+        <a href="mailto:sawadogo.abdoul_faical@courrier.uqam.ca"> Faïçal Sawadogo</a> et
+        <a href="mailto:brien-lejeune.stephanie@courrier.uqam.ca">Stéphanie Brien Lejeune</a></p>
+      <p class="muted credit"> &copy; 2016 GUILLAUME-SAWADOGO-BRIEN LEJEUNE</p>
+    </div>
+    <script src="src/main/resources/js/jquery-1.11.3.min.js"></script>
+    <script src="src/main/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="src/main/resources/js/main.js"></script>
+  </div>
+</div>
 </body>
 </html>
