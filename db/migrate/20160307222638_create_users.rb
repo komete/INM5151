@@ -4,9 +4,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :nom
       t.string :prenom
       t.string :email
-      t.int :poste
+      t.integer :poste
       t.string :codeEmploye
-      t.int :idCompte
+      t.integer :idCompte
       t.string :telephone
 
       t.timestamps null: false
