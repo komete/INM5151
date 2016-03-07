@@ -7,13 +7,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">UQÀM Tweeter</a>
+      <a class="navbar-brand" <%=link_to image_tag('logo.JPG') , acceuil_path %></a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Page principale</a></li>
-        <li><a href="https://fr.wikipedia.org/wiki/Twitter">À propos</a></li>
-        <li><a href="mailto:guillaume.remi@courrier.uqam.ca;adari.othmane@gmail.com">Contact</a></li>
+        <li class="active"><%= link_to "Page principale",   acceuil_path %></li>
+        <li><a href="http://intra.info.uqam.ca/Members/mili_h/Enseignement/inm5151-hiver2016/accueil">À propos</a></li>
+        <li><a href="mailto:guillaume.remi@courrier.uqam.ca;brien-lejeune.stephanie@courrier.uqam.ca;
+        sawadogo.abdoul_faical@courrier.uqam.ca">Contacts</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Liens utiles <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">

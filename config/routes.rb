@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root                'pages#Acceuil'
+  get 'acceuil'    => 'pages#Acceuil'
   get 'cartes'     => 'pages#Cartes'
   get 'recherches' => 'pages#Recherches'
   get 'offres'     => 'pages#Offres'
