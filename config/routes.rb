@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'pages/Cartes'
-  get 'pages/Recherches'
-  get 'pages/Offres'
-  get 'pages/Acceuil'
-  root 'pages#Acceuil'
-
+  root                'pages#Acceuil'
+  get 'cartes'     => 'pages#Cartes'
+  get 'recherches' => 'pages#Recherches'
+  get 'offres'     => 'pages#Offres'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
