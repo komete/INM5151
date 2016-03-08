@@ -1,0 +1,2 @@
+class AccountVerificationsController < ApplicationController
+end

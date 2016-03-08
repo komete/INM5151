@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_save { self.email = email.downcase }
+  before_save :convertir_email
   validates :nom,  presence: true, length: { maximum: 50 }
   validates :prenom,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -11,4 +11,10 @@ class User < ActiveRecord::Base
   validates :poste,  presence: true
   validates :codeEmploye,  presence: {scope: true, message: "Doit être saisit"}, uniqueness: true
   #validates :idCompte, presence: true
+
+  :private
+
+    def convertir_email
+      self.email = email.downcase
+    end
 end
