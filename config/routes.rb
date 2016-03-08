@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'offres'     => 'pages#offres'
 
   get 'signin'     => 'users#connect'
-  get 'register'   => 'accounts#create'
+  get 'profil'     => 'users#new'
+  get 'register'   => 'accounts#new'
 
   resources :accounts, :users
 

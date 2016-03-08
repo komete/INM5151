@@ -41,6 +41,14 @@ img {
   width: 60px;
 }
 /* Formulaires */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+input {
+  height: auto !important;
+}
 #error_explanation {
   color: red;
   ul {
@@ -48,7 +56,6 @@ img {
     margin: 0 0 30px 0;
   }
 }
-
 .field_with_errors {
   @extend .has-error;
   .form-control {

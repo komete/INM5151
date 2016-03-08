@@ -1,13 +1,14 @@
 class AccountsController < ApplicationController
-  def create
+  def new
     @account = Account.new
   end
 
-  def save
+  def create
     @account = Account.new(account_params)
     if @account.save
+      redirect_to @user
     else
-      render 'create'
+      render 'new'
     end
   end
 
