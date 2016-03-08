@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     if @account.save
-      redirect_to @user
+      redirect_to profil_url
     else
       render 'new'
     end
