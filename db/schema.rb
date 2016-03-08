@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 20160307235014) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "password_digest"
-    t.boolean  "verified"
+    t.string   "verified_digest"
+    t.boolean  "verified",        default: false
+    t.datetime "verified_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -29,8 +31,9 @@ ActiveRecord::Schema.define(version: 20160307235014) do
     t.string   "codeEmploye"
     t.integer  "idCompte"
     t.string   "telephone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "verified_digest"
   end
 
 end
