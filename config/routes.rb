@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   get 'cartes'     => 'pages#cartes'
   get 'recherches' => 'pages#recherches'
   get 'offres'     => 'pages#offres'
-
-  get 'signin'     => 'users#connect'
   get 'profil'     => 'users#new'
   get 'register'   => 'accounts#new'
   get    'login'   => 'sessions#new'

@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  def connect
-  end
   def new
     @user = User.new
   end
