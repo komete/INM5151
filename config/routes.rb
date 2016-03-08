@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'signin'     => 'users#connect'
   get 'profil'     => 'users#new'
   get 'register'   => 'accounts#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+
 
   resources :accounts, :users
 
