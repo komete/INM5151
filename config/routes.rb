@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
   root                'pages#acceuil'
   get 'acceuil'    => 'pages#acceuil'
   get 'cartes'     => 'pages#cartes'
