@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root                'pages#acceuil'
   get 'acceuil'    => 'pages#acceuil'
   get 'cartes'     => 'pages#cartes'
@@ -6,7 +7,9 @@ Rails.application.routes.draw do
   get 'offres'     => 'pages#offres'
 
   get 'signin'     => 'users#connect'
+  get 'register'   => 'accounts#create'
 
+  resources :accounts, :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
