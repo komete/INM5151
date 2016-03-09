@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309151435) do
+ActiveRecord::Schema.define(version: 20160309205356) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "username"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20160309151435) do
     t.boolean  "verified",        default: false
     t.datetime "verified_at"
     t.string   "remember_digest"
+    t.string   "reset_digest"
+    t.datetime "reset_at"
   end
 
   create_table "users", force: :cascade do |t|
