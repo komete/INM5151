@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160309151435) do
     t.string   "verified_digest"
     t.boolean  "verified",        default: false
     t.datetime "verified_at"
+    t.string   "remember_digest"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,10 +32,8 @@ ActiveRecord::Schema.define(version: 20160309151435) do
     t.string   "codeEmploye"
     t.integer  "idCompte"
     t.string   "telephone"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "verified_digest"
-    t.string   "remember_digest"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
