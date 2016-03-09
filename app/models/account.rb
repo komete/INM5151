@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  attr_accessor :verification_token
+  attr_accessor :verification_token, :remember_token
   before_create :create_verified_digest
   validates :username, presence: true, length: { maximum: 10 }
   has_secure_password
@@ -13,6 +13,22 @@ class Account < ActiveRecord::Base
   def send_verification_email
     UserMailer.account_verification(self).deliver_now
   end
+
+  def Account.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def Account.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = Account.new_token
+    update_attribute(:remember_digest, Account.digest(remember_token))
+  end
+
   :private
 
     def create_verified_digest
