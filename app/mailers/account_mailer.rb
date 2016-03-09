@@ -6,7 +6,8 @@ class AccountMailer < ApplicationMailer
   #   en.account_mailer.account_verification.subject
   #
   def account_verification(account)
-    @user = User.find_by_idCompte(account.id)
+    #@user = User.find_by_idCompte(account.id)
+    @user = account.user
     @account = account
     mail to: "guillaume.remi@courrier.uqam.ca;brien-lejeune.stephanie@courrier.uqam.ca;
     sawadogo.abdoul_faical@courrier.uqam.ca", subject: "Activation de compte"
