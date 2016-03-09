@@ -1,4 +1,5 @@
 class Account < ActiveRecord::Base
+  has_one :user
   attr_accessor :verification_token, :remember_token
   before_create :create_verified_digest
   validates :username, presence: true, length: { maximum: 10 }

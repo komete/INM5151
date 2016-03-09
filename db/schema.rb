@@ -32,8 +32,12 @@ ActiveRecord::Schema.define(version: 20160309151435) do
     t.string   "codeEmploye"
     t.integer  "idCompte"
     t.string   "telephone"
+    t.integer  "account_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "users", ["account_id", "created_at"], name: "index_users_on_account_id_and_created_at"
+  add_index "users", ["account_id"], name: "index_users_on_account_id"
 
 end

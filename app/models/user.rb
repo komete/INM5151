@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  belongs_to :account
   before_save :convertir_email
   validates :nom,  presence: true, length: { maximum: 50 }
   validates :prenom,  presence: true, length: { maximum: 50 }
@@ -10,7 +11,6 @@ class User < ActiveRecord::Base
   validates :telephone,  presence: true, format: {with: VALID_TELEPHONE_REGEX}
   validates :poste,  presence: true
   validates :codeEmploye,  presence: {scope: true, message: "Doit être saisit"}, uniqueness: true
-  #validates :idCompte, presence: true
 
   :private
 

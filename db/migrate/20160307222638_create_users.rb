@@ -8,8 +8,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :codeEmploye
       t.integer :idCompte
       t.string :telephone
+      t.references :account, index: true, foreign_key: true
 
       t.timestamps null: false
     end
+    add_index :users, [:account_id, :created_at]
   end
 end
