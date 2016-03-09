@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.integer :poste
       t.string :codeEmploye
-      t.integer :idCompte
       t.string :telephone
       t.references :account, index: true, foreign_key: true
 

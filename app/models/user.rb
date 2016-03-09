@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :telephone,  presence: true, format: {with: VALID_TELEPHONE_REGEX}
   validates :poste,  presence: true
   validates :codeEmploye,  presence: {scope: true, message: "Doit être saisit"}, uniqueness: true
+  validates :account_id, presence: true
 
   :private
 

@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20160309151435) do
     t.string   "email"
     t.integer  "poste"
     t.string   "codeEmploye"
-    t.integer  "idCompte"
     t.string   "telephone"
     t.integer  "account_id"
     t.datetime "created_at",  null: false
