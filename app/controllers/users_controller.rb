@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params, account_id: @account.id )
     @user.idCompte = @account.id
     if @user.save
       AccountMailer.account_verification(@account).deliver_now
