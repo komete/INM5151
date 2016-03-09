@@ -5,7 +5,7 @@
       <h3>Création du profil utilisateur</h3>
     </div>
   </div>
-
+<h1></h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= form_for(@user) do |f| %>
@@ -24,7 +24,6 @@
           <%= f.label "Poste" %>
           <%= f.select(:poste,
                        options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Autre', 5]]),class: 'form-control' ) %>
-
           <%= f.label "Code employé" %>
           <%= f.text_field :codeEmploye, class: 'form-control' %>
 
