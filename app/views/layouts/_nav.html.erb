@@ -1,6 +1,6 @@
 <div id='cssmenu'>
   <ul>
-    <li><a href='http://localhost:3000'><span>RoadQUest</span></a></li>
+    <li><%= link_to "RoadQuest", acceuil_path%></li>
     <li><a href='#'><span>À propos</span></a></li>
     <li class='last'><a href="mailto:guillaume.remi@courrier.uqam.ca;brien-lejeune.stephanie@courrier.uqam.ca;
     sawadogo.abdoul_faical@courrier.uqam.ca"><span>Contact</span></a></a>
@@ -22,7 +22,9 @@
         </li>
       </ul>
     </li>
-
+    <li><%= link_to "Recherches", recherches_path%></li>
+    <li><%= link_to "Se connecter", login_path%></li>
+    <li><%= link_to "Création de compte", register_path%></li>
   </ul>
 </div>
 <script type="text/javascript">
