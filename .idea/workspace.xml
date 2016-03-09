@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4723fd23-44e9-41a8-827c-450ee440e11b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/password_resets_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/password_resets_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/account_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/account_mailer.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/account.rb" afterPath="$PROJECT_DIR$/app/models/account.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/account_mailer/password_reset.html.erb" afterPath="$PROJECT_DIR$/app/views/account_mailer/password_reset.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/account_mailer/password_reset.text.erb" afterPath="$PROJECT_DIR$/app/views/account_mailer/password_reset.text.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/password_resets/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/password_resets/edit.html.erb" />
     </list>
     <ignored path="RoadQuest.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +22,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/RoadQuest@Development__RoadQuest.coverage" NAME="Development: RoadQuest Coverage Results" MODIFIED="1457553915555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RoadQuest" />
+    <SUITE FILE_PATH="coverage/RoadQuest@Development__RoadQuest.coverage" NAME="Development: RoadQuest Coverage Results" MODIFIED="1457561156200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="RoadQuest" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -44,41 +40,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="account.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="account.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/account.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.8911071">
+              <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account_mailer.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/account_mailer.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="password_resets_controller.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="password_resets_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/password_resets_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8711434">
-              <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/password_resets/edit.html.erb">
+      <file leaf-file-name="sessions_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -152,12 +138,12 @@
         <option value="$PROJECT_DIR$/test/mailers/account_mailer_test.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/password_resets/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/account.rb" />
         <option value="$PROJECT_DIR$/app/mailers/account_mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/account_mailer/password_reset.text.erb" />
         <option value="$PROJECT_DIR$/app/views/account_mailer/password_reset.html.erb" />
         <option value="$PROJECT_DIR$/app/views/password_resets/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/password_resets_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/account.rb" />
       </list>
     </option>
   </component>
@@ -717,6 +703,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17810026">
           <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -907,14 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/sessions_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1035,34 +1014,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/password_resets/edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22770399">
+          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/mailers/account_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.59891105">
           <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/account.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/password_resets/edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/password_resets_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8711434">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/account.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8911071">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
           <folding />
         </state>
       </provider>
