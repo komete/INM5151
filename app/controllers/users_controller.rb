@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    @user.idCompte = @account.id
     if @user.save
       AccountMailer.account_verification(@account).deliver_now
       flash[:info] = "Un email a été envoyé aux administrateurs pour la validation de votre compte."

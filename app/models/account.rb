@@ -29,6 +29,10 @@ class Account < ActiveRecord::Base
     update_attribute(:remember_digest, Account.digest(remember_token))
   end
 
+  def authenticathed?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
   :private
 
     def create_verified_digest
