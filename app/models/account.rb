@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
   has_one :user
-  attr_accessor :verification_token, :remember_token
+  attr_accessor :verification_token, :remember_token, :reset_token
   before_create :create_verified_digest
   validates :username, presence: true, length: { maximum: 10 }
   has_secure_password
@@ -37,6 +37,16 @@ class Account < ActiveRecord::Base
   def authenticathed?(remember_token)
     return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def create_reset_digest
+    self.reset_token = Account.new_token
+    update_attribute(:reset_digest,  Account.digest(reset_token))
+    update_attribute(:reset_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 
   :private
