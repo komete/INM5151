@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :verification_token, :remember_token, :reset_token
   before_create :create_verified_digest
   before_save :convertir_email
-  validates :username, presence: true, length: { maximum: 10 }
+  validates :username, presence: true, length: { maximum: 10 }, uniqueness: {case_sensitive: true}
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   validates :nom,  presence: true, length: { maximum: 50 }
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-        BCrypt::Engine.cost
+                                                  BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
 
@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
     end
 
     def create_verified_digest
-      self.verification_token  = Account.new_token
-      self.verified_digest = Account.digest(verification_token)
+      self.verification_token  = User.new_token
+      self.verified_digest = User.digest(verification_token)
     end
 end
