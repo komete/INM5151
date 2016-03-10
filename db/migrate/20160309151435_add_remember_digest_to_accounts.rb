@@ -1,5 +1,5 @@
 class AddRememberDigestToAccounts < ActiveRecord::Migration
   def change
-    add_column :accounts, :remember_digest, :string
+    add_column :users, :remember_digest, :string
   end
 end

@@ -1,8 +1,8 @@
-<% provide(:title, 'Profil') %>
+<% provide(:title, 'Sign up') %>
 <div class="container">
   <div class="page-header">
     <div class="container center">
-      <h3>Création du profil utilisateur</h3>
+      <h3>Création du compte utilisateur</h3>
     </div>
   </div>
   <div class="row">
@@ -20,6 +20,9 @@
           <%= f.label "Courriel" %>
           <%= f.text_field :email, class: 'form-control' %>
 
+          <%= f.label "Nom d'utilisateur" %>
+          <%= f.text_field :username, class: 'form-control' %>
+
           <%= f.label "Poste" %>
           <%= f.select(:poste,
                        options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Autre', 5]]),class: 'form-control' ) %>
@@ -29,7 +32,13 @@
           <%= f.label "Numéro de téléphone" %>
           <%= f.text_field :telephone, class: 'form-control' %>
 
-          <%= f.submit "Créer profil", class: "btn btn-primary" %>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+          <%= f.submit "Créer compte", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

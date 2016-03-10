@@ -8,7 +8,7 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
-      @user.account.create_reset_digest
+      @user.create_reset_digest
       @user.send_password_reset_email
       flash[:info] = "Un email vous a été envoyé avec les instructions"
       redirect_to root_url
@@ -23,11 +23,11 @@ class PasswordResetsController < ApplicationController
 
   def update
     if params[:account][:password].empty?
-      @account.errors.add(:password, "Vous devez fournir un nouveau mot de passe")
+      @user.errors.add(:password, "Vous devez fournir un nouveau mot de passe")
       render 'edit'
-    elsif @account.update_attributes(account_params)
-      account = @account
-      login_in account
+    elsif @user.update_attributes(account_params)
+      user = @user
+      login_in user
       flash.now[:success] = "Mot de passe réinitialisé avec succès"
       redirect_to recherches_url
     else
@@ -46,14 +46,13 @@ class PasswordResetsController < ApplicationController
   end
 
   def valid_user
-    unless (@user.account && @user.account.activated? &&
-        @user.account.authenticated?(:reset, params[:id]))
+    unless (@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
       redirect_to root_url
     end
   end
 
   def check_expiration
-    if @user.account.password_reset_ended?
+    if @user.password_reset_ended?
       flash.now[:danger] = "Délai expiré ..."
       redirect_to password_resets_new_url
     end

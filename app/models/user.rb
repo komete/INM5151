@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  belongs_to :account
+  attr_accessor :verification_token, :remember_token, :reset_token
+  before_create :create_verified_digest
   before_save :convertir_email
+  validates :username, presence: true, length: { maximum: 10 }
+  has_secure_password
+  validates :password, presence: true, length: { minimum: 6 }
   validates :nom,  presence: true, length: { maximum: 50 }
   validates :prenom,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -11,11 +15,62 @@ class User < ActiveRecord::Base
   validates :telephone,  presence: true, format: {with: VALID_TELEPHONE_REGEX}
   validates :poste,  presence: true
   validates :codeEmploye,  presence: {scope: true, message: "Doit être saisit"}, uniqueness: true
-  validates :account_id, presence: true
+
+  def verified
+    update_attribute(:verified, true)
+    update_attribute(:verified, Time.zone.now)
+  end
+
+  def send_verification_email
+    UserMailer.account_verification(self).deliver_now
+  end
+
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
+  def authenticathed?(remember_token)
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 
   :private
 
     def convertir_email
       self.email = email.downcase
+    end
+
+    def create_verified_digest
+      self.verification_token  = Account.new_token
+      self.verified_digest = Account.digest(verification_token)
     end
 end

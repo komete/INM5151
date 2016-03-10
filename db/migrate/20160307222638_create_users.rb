@@ -7,10 +7,9 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :poste
       t.string :codeEmploye
       t.string :telephone
-      t.references :account, index: true, foreign_key: true
+      t.string :username
 
       t.timestamps null: false
     end
-    add_index :users, [:account_id, :created_at]
   end
 end

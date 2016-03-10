@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
   def new
   end
   def create
-    account = Account.find_by(username: params[:session][:username])
-    if account && account.authenticate(params[:session][:password])
-      log_in account
-      params[:session][:remember_me] == '1' ? remember(account) : forget(account)
+    user = User.find_by(username: params[:session][:username])
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to recherches_path
     else
       flash.now[:danger] = 'Combinaison invalide courriel et/ou mot de passe'

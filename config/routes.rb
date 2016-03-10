@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'cartes'     => 'pages#cartes'
   get 'recherches' => 'pages#recherches'
   get 'offres'     => 'pages#offres'
-  get 'profil'     => 'users#new'
-  get 'register'   => 'accounts#new'
+  get 'signup'     => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'sessions/new'
 
-  resources :accounts, :users
+  resources :users
   resources :account_verifications, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update ]
 

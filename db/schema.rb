@@ -13,7 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20160309205356) do
 
-  create_table "accounts", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
+    t.string   "nom"
+    t.string   "prenom"
+    t.string   "email"
+    t.integer  "poste"
+    t.string   "codeEmploye"
+    t.string   "telephone"
     t.string   "username"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -25,20 +31,5 @@ ActiveRecord::Schema.define(version: 20160309205356) do
     t.string   "reset_digest"
     t.datetime "reset_at"
   end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "nom"
-    t.string   "prenom"
-    t.string   "email"
-    t.integer  "poste"
-    t.string   "codeEmploye"
-    t.string   "telephone"
-    t.integer  "account_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "users", ["account_id", "created_at"], name: "index_users_on_account_id_and_created_at"
-  add_index "users", ["account_id"], name: "index_users_on_account_id"
 
 end
