@@ -22,7 +22,13 @@
         </li>
       </ul>
     </li>
-    <li><%= link_to "Recherches", recherches_path%></li>
+    <li class="has-sub"><a href='#'><span>Services</span></a>
+      <ul>
+        <li><%= link_to "Recherches", recherches_path%></li>
+        <li><%= link_to "Liste des appels d'offres", offres_path%></li>
+        <li><%= link_to "Création de cartes", cartes_path%></li>
+      </ul>
+    </li>
     <% if logged_in? %>
         <li class='has-sub'><a href='#'><span>Compte</span></a>
           <ul><%= link_to "Se déconnecter", logout_path%></ul>

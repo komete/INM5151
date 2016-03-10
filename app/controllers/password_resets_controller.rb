@@ -22,7 +22,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    if params[:account][:password].empty?
+    if params[:user][:password].empty?
       @user.errors.add(:password, "Vous devez fournir un nouveau mot de passe")
       render 'edit'
     elsif @user.update_attributes(account_params)
@@ -38,7 +38,7 @@ class PasswordResetsController < ApplicationController
   :private
 
   def account_params
-    params.require(:account).permit(:password, :password_confirmation)
+    params.require(:user).permit(:password, :password_confirmation)
   end
 
   def get_user
