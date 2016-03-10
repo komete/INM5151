@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
   def new
-
   end
   def create
     account = Account.find_by(username: params[:session][:username])
