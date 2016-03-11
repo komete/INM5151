@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
     self.create_verified_digest
   end
 
+  def create_verified_digest
+    self.verification_token  = User.new_token
+    self.verified_digest = User.encrypt_content(verification_token)
+  end
+
   def send_verification_email
     AccountMailer.account_verification(self).deliver_now
   end
@@ -71,8 +76,4 @@ class User < ActiveRecord::Base
       self.email = email.downcase
     end
 
-    def create_verified_digest
-      self.verification_token  = User.new_token
-      self.verified_digest = User.encrypt_content(verification_token)
-    end
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_to recherches_path
       else
-        flash[:danger] = "Désolé votre compte n'a pas été encore activé"
+        flash.now[:danger] = "Désolé votre compte n'a pas été encore activé"
         redirect_to root_url
       end
     else
