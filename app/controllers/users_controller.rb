@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      AccountMailer.account_verification(@user).deliver_now
+      @user.send_verification_email
       flash.now[:info] = "Un email a été envoyé aux administrateurs pour la validation de votre compte."
       redirect_to root_path
     else

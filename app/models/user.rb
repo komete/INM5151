@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def send_verification_email
-    UserMailer.account_verification(self).deliver_now
+    AccountMailer.account_verification(self).deliver_now
   end
 
   def User.digest(string)
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
 
   def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
+    AccountMailer.password_reset(self).deliver_now
   end
 
   def password_reset_expired?
