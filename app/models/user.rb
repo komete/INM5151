@@ -16,21 +16,17 @@ class User < ActiveRecord::Base
   validates :poste,  presence: true
   validates :codeEmploye,  presence: {scope: true, message: "Doit être saisit"}, uniqueness: true
 
-  def verified
+  def is_now_verified
     update_attribute(:verified, true)
     update_attribute(:verified, Time.zone.now)
     self.create_verified_digest
-  end
-
-  def verified?
-    return self.verified unless self.verified.nil?
   end
 
   def send_verification_email
     AccountMailer.account_verification(self).deliver_now
   end
 
-  def User.digest(string)
+  def User.encrypt_content(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
@@ -42,7 +38,7 @@ class User < ActiveRecord::Base
 
   def remember
     self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
+    update_attribute(:remember_digest, User.encrypt_content(remember_token))
   end
 
   def forget
@@ -57,7 +53,7 @@ class User < ActiveRecord::Base
 
   def create_reset_digest
     self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_digest,  User.encrypt_content(reset_token))
     update_attribute(:reset_at, Time.zone.now)
   end
 
@@ -77,6 +73,6 @@ class User < ActiveRecord::Base
 
     def create_verified_digest
       self.verification_token  = User.new_token
-      self.verified_digest = User.digest(verification_token)
+      self.verified_digest = User.encrypt_content(verification_token)
     end
 end

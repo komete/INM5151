@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      if user.verified?
+      if user.verified
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_to recherches_path
