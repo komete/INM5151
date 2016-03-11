@@ -4,7 +4,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-      <%= link_to image_tag('slide3.jpg', :class => 'photo') %>
+      <div class="w3-content w3-section" >
+        <%= link_to image_tag('map.png', :class => ' mySlides photo') %>
+        <%= link_to image_tag('road.jpg', :class => ' mySlides photo') %>
+        <%= link_to image_tag('road-sign.jpg', :class => ' mySlides photo') %>
+        <%= link_to image_tag('route.jpg', :class => ' mySlides photo') %>
+        <%= link_to image_tag('autoroute.jpg', :class => ' mySlides photo') %>
+
+      </div>
     </div>
 
     <div class="col-md-4 description">
@@ -23,10 +30,27 @@
         <li>Faire une recherche</li>
       </ul>
     </div>
-
   </div>
   <!-- /.row -->
   <hr>
+
+  <a href="#" class="myButton">Faire une recherche</a>
 </div>
 <!-- /.container -->
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 8000);
+    }
+  </script>
 </section>
