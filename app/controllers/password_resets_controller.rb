@@ -28,9 +28,9 @@ class PasswordResetsController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(account_params)
       user = @user
-      login_in user
-      flash.now[:success] = "Mot de passe réinitialisé avec succès"
-      redirect_to recherches_url
+      #login_in user
+      flash[:success] = "Mot de passe réinitialisé avec succès"
+      redirect_to root_url
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def valid_user
-    unless (@user && @user.activated? && @user.authenticated?(:reset, params[:id]))
+    unless (@user && @user.verified? && @user.authenticated?(:reset, params[:id]))
       redirect_to root_url
     end
   end

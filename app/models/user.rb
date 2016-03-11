@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
   def verified
     update_attribute(:verified, true)
     update_attribute(:verified, Time.zone.now)
+    self.create_verified_digest
   end
 
   def verified?
