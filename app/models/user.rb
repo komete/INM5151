@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
     update_attribute(:verified, Time.zone.now)
   end
 
+  def verified?
+    return self.verified unless self.verified.nil?
+  end
+
   def send_verification_email
     UserMailer.account_verification(self).deliver_now
   end
@@ -44,9 +48,10 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-  def authenticathed?(remember_token)
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticathed?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def create_reset_digest
@@ -60,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   def password_reset_expired?
-    reset_sent_at < 2.hours.ago
+    reset_at < 2.hours.ago
   end
 
   :private

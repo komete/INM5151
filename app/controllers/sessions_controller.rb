@@ -4,10 +4,14 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
-      log_in user
-      remember user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to recherches_path
+      if user.verified?
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_to recherches_path
+      else
+        flash[:danger] = "Désolé votre compte n'a pas été encore activé"
+        redirect_to root_url
+      end
     else
       flash.now[:danger] = 'Combinaison invalide courriel et/ou mot de passe'
       render 'new'

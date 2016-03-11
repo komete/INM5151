@@ -31,7 +31,9 @@
     </li>
     <% if logged_in? %>
         <li class='has-sub'><a href='#'><span>Compte</span></a>
-          <ul><%= link_to "Se déconnecter", logout_path%></ul>
+          <ul>
+            <li><%= link_to "Se déconnecter", logout_path, method: :delete%></li>
+          </ul>
         </li>
     <% else %>
         <li><%= link_to "Se connecter", login_path%></li>
