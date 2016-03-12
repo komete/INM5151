@@ -79,6 +79,7 @@ Rails.application.configure do
 
   config.force_ssl = true
 
+  begin
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'roadquest.herokuapp.com'
@@ -92,4 +93,6 @@ Rails.application.configure do
       :domain         => 'heroku.com',
       :enable_starttls_auto => true
   }
+  end
+
 end
