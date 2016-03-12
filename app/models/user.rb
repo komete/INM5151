@@ -19,7 +19,6 @@ class User < ActiveRecord::Base
   def is_now_verified
     update_attribute(:verified, true)
     update_attribute(:verified, Time.zone.now)
-    self.create_verified_digest
   end
 
   def create_verified_digest
@@ -50,7 +49,7 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-  def authenticathed?(attribute, token)
+  def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)

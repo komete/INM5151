@@ -3,8 +3,6 @@ class AccountMailer < ApplicationMailer
   def account_verification(user)
     @user = user
     mail to: "remi.guillaume.montreal@gmail.com" , subject: "Activation de compte"
-    #"guillaume.remi@courrier.uqam.ca;brien-lejeune.stephanie@courrier.uqam.ca;
-    #sawadogo.abdoul_faical@courrier.uqam.ca"
   end
 
 
