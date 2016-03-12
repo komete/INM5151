@@ -3,7 +3,7 @@ class AccountVerificationsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && !user.verified? && user.authenticated?(:verified, params[:id])
       user.is_now_verified
-      log_in user
+      #log_in user
       flash[:success] = "Compte activé avec succés!"
       redirect_to root_url
     else
