@@ -49,6 +49,9 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
+  def verified?
+    self.verified
+  end
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
