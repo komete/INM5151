@@ -6,7 +6,7 @@ remi:
   poste: 1
   codeEmploye: GUIR23078602
   telephone: 438-876-0843
-  password_digest: <%= User.digest('admin1') %>
+  password_digest: <%= User.encrypt_content('admin1') %>
   administrateur: true
   verified: true
   verified_at: <%= Time.zone.now %>
@@ -19,7 +19,7 @@ faycal:
   poste: 1
   codeEmploye: SAWA23098900
   telephone: 438-935-8129
-  password_digest: <%= User.digest('admin2') %>
+  password_digest: <%= User.encrypt_content('admin2') %>
   administrateur: true
   verified: true
   verified_at: <%= Time.zone.now %>
@@ -31,7 +31,7 @@ stephanie:
   poste: 1
   codeEmploye: BRIS01579306
   telephone: 514-218-7720
-  password_digest: <%= User.digest('admin3') %>
+  password_digest: <%= User.encrypt_content('admin3') %>
   administrateur: true
   verified: true
   verified_at: <%= Time.zone.now %>
