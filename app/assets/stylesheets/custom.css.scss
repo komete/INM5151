@@ -31,9 +31,15 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: white;
+  height: 75px;
+  background-color: #233140;
+  color: white;
+  padding: 25px 0;
   font-size: 12px;
+}
+.footer a{
+  text-decoration: none;
+  font-weight: bold;
 }
 img {
   padding-bottom: 5px;
@@ -73,4 +79,10 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+.session{
+  text-align: center;
+  color: #005ce6;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: bold;
 }
