@@ -10,4 +10,9 @@ class AccountMailer < ApplicationMailer
     @user = user
     mail to: @user.email, subject: "Réinitialisation du mot de passe"
   end
+
+  def send_notification(user)
+    @user = user
+    mail to: @user.email, subject: "Activation de compte"
+  end
 end

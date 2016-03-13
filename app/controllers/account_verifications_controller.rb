@@ -4,6 +4,7 @@ class AccountVerificationsController < ApplicationController
     if user && !user.verified? && user.authenticated?(:verified, params[:id])
       user.is_now_verified
       #log_in user
+      AccountMailer.send_notification(user).deliver_now
       flash[:success] = "Compte activé avec succés!"
       redirect_to root_url
     else

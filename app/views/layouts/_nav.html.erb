@@ -5,11 +5,7 @@
     <li><%= link_to "Services", acceuil_path %></li>
     <li><%= link_to "Contact", acceuil_path%></li>
     <% if logged_in? %>
-        <li class='has-sub'><a href='#'><span>Compte</span></a>
-          <ul>
-            <li><%= link_to "Se déconnecter", logout_path, method: :delete %></li>
-          </ul>
-        </li>
+        <li><%= link_to "Se déconnecter", logout_path, method: :delete %></li>
     <% else %>
         <li><%= link_to "Se connecter", login_path %></li>
     <% end %>
