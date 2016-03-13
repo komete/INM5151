@@ -4,31 +4,12 @@
     <li><%= link_to "À propos", acceuil_path %></li>
     <li><%= link_to "Services", acceuil_path %></li>
     <li><%= link_to "Contact", acceuil_path%></li>
+
     <% if logged_in? %>
         <li><%= link_to "Se déconnecter", logout_path, method: :delete %></li>
     <% else %>
         <li><%= link_to "Se connecter", login_path %></li>
     <% end %>
     <li><%= link_to "Créer un compte", signup_path %></li>
-    <li class='active has-sub'><a href='#'><span>Liens Utiles</span></a>
-      <ul>
-        <li class='has-sub'><a href='http://www.uqam.ca/'><span>UQÀM</span></a>
-          <ul>
-            <li><a href='http://intra.info.uqam.ca/Members/mili_h/Enseignement/inm5151-hiver2016/accueil'><span>Site du cours</span></a>
-            </li>
-            <li class='last'>
-              <a href='http://info.uqam.ca/baccalaur%C3%A9at_en_informatique_et_g%C3%A9nie_logiciel/'><span>Département d'informatique</span></a>
-            </li>
-          </ul>
-        </li>
-        <li class='has-sub'><a href='#'><span>Réferences</span></a>
-          <ul>
-            <li><a href='http://getbootstrap.com/'><span>Bootstrap</span></a></li>
-            <li class='last'><a href='https://www.railstutorial.org/'><span>Ruby On Rails</span></a></li>
-            <li class='last'><a href='http://openclassrooms.com/'><span>Openclassroom</span></a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
   </ul>
 </div>

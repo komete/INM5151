@@ -379,4 +379,77 @@
         top: 26px;
     }
 }
-/*--------------------- Fin css menu-----------------------------------------------*/
+/*--------------------- css  pour le contenu -----------------------------------------------*/
+
+.photo {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 100%;
+    height: 610px;
+    margin-right: 50px;
+}
+
+.description{
+    padding-top: 55px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.description h3{
+    color: #005ce6;
+}
+.description p{
+    text-align: justify;
+}
+.bienvenue
+{
+    font-family: 'PT Sans', sans-serif;
+    color: #005ce6;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+.description strong{
+    color: #005ce6;
+    font-size: 18px;
+}
+
+.carousel{
+    padding-bottom: 100px;
+}
+
+/*---------  CSS pour le footer   -----------*/
+
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #233140;
+    color: white;
+    padding: 5px 0;
+    font-size: 12px;
+    bottom: 0;
+}
+.footer a{
+    text-decoration: none;
+    font-weight: bold;
+    color:#4cb6ea;
+    text-align: center;
+    padding-left: 18px;
+}
+.footer h4{
+    color:#5cbf2a;
+    font-size: 25px;
+}
+.copyrigth{
+    font-size: 16px;
+    padding-left: 25px;
+    color:antiquewhite;
+    text-align: center;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 5px;
+}
+#liens_footer{
+    font-family: 'PT Sans', sans-serif;
+}
+
+.ref{
+    padding-left: 10px;
+}
