@@ -53,7 +53,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def check_expiration
-    if @user.password_reset_ended?
+    if @user.password_reset_expired?
       flash.now[:danger] = "Délai expiré ..."
       redirect_to password_resets_new_path
     end
