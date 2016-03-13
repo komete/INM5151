@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    flash[:succes] = "Vous avez été déconnecté avec succès"
+    flash[:success] = "Vous avez été déconnecté avec succès"
     redirect_to root_path
   end
 end
