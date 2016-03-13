@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     user = current_user
     unless logged_in? && user.poste != '1'
       flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
-      redirect_to login_url
+      redirect_to login_path
     end
   end
 end

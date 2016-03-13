@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         redirect_to recherches_path
       else
         flash.now[:danger] = "Désolé votre compte n'a pas été encore activé"
-        redirect_to root_url
+        redirect_to root_path
       end
     else
       flash.now[:danger] = 'Combinaison invalide courriel et/ou mot de passe'
@@ -20,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to root_path
   end
 end

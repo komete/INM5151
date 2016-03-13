@@ -12,7 +12,7 @@ class PasswordResetsController < ApplicationController
       @user.create_reset_digest
       @user.send_password_reset_email
       flash[:info] = "Un email vous a été envoyé avec les instructions"
-      redirect_to root_url
+      redirect_to root_path
     else
       flash.now[:danger] = "Adresse email invalide et/ou inconnue"
       render 'new'
@@ -30,7 +30,7 @@ class PasswordResetsController < ApplicationController
       user = @user
       #login_in user
       flash[:success] = "Mot de passe réinitialisé avec succès"
-      redirect_to root_url
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -48,14 +48,14 @@ class PasswordResetsController < ApplicationController
 
   def valid_user
     unless (@user && @user.verified? && @user.authenticated?(:reset, params[:id]))
-      redirect_to root_url
+      redirect_to root_path
     end
   end
 
   def check_expiration
     if @user.password_reset_ended?
       flash.now[:danger] = "Délai expiré ..."
-      redirect_to password_resets_new_url
+      redirect_to password_resets_new_path
     end
   end
 end
