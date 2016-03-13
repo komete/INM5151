@@ -8,12 +8,13 @@
   <%= favicon_link_tag 'logo.JPG.ico' %>
 </head>
 <body>
-<% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-<%= yield %>
+<div class="main-content">
+  <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <%= yield %>
 
-<%= render 'layouts/footer' %>
-
+  <%= render 'layouts/footer' %>
+</div>
 </body>
 </html>
