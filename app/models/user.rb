@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
   end
   def authenticated?(token_type, token)
     content = send("#{token_type}_digest")
-    return false if digest.nil?
+    return false if content.nil?
     BCrypt::Password.new(content).is_password?(token)
   end
 
