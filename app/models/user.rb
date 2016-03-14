@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
     self.verified
   end
   def authenticated?(token_type, token)
-    content = send("#{token_type}_encrypted")
+    content = send("#{token_type}_digest")
     return false if digest.nil?
     BCrypt::Password.new(content).is_password?(token)
   end
