@@ -11,5 +11,8 @@
         <li><%= link_to "Se connecter", login_path %></li>
     <% end %>
     <li><%= link_to "Créer un compte", signup_path %></li>
+    <% if logged_in? %>
+      <li><% @current_user.nom %> <% @current_user.prenom %></li>
+    <% end %>
   </ul>
 </div>
