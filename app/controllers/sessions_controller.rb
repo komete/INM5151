@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         redirect_to root_path
       end
     else
-      flash.now[:danger] = 'Combinaison invalide courriel et/ou mot de passe'
+      flash.now[:danger] = 'Combinaison invalide nom d\'utilisateur et/ou mot de passe'
       render 'new'
     end
   end

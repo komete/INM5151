@@ -1,4 +1,4 @@
-class AddResetAttributesToAccounts < ActiveRecord::Migration
+class AddResetAttributesToUsers < ActiveRecord::Migration
   def change
     add_column :users, :reset_digest, :string
     add_column :users, :reset_at, :datetime

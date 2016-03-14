@@ -9,7 +9,7 @@ class PasswordResetsController < ApplicationController
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
     if @user
-      @user.create_reset_digest
+      @user.create_reset_encrypted_token
       @user.send_password_reset_email
       flash[:info] = "Un email vous a été envoyé avec les instructions"
       redirect_to root_path
@@ -47,7 +47,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def valid_user
-    unless (@user && @user.verified? && @user.authenticated?(:reset, params[:id]))
+    unless (@user && @user.is_verified? && @user.authenticated?(:reset, params[:id]))
       redirect_to root_path
     end
   end

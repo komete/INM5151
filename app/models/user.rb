@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :verification_token, :remember_token, :reset_token
-  before_create :create_verified_digest
-  before_save :convertir_email
+  before_create :create_verified_encrypted_token
+  before_save :format_email
+
   validates :username, presence: true, length: { maximum: 10 }, uniqueness: {case_sensitive: true}
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
@@ -21,7 +22,7 @@ class User < ActiveRecord::Base
     update_attribute(:verified_at, Time.zone.now)
   end
 
-  def create_verified_digest
+  def create_verified_encrypted_token
     self.verification_token  = User.new_token
     self.verified_digest = User.encrypt_content(verification_token)
   end
@@ -49,18 +50,18 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, nil)
   end
 
-  def verified?
+  def is_verified?
     self.verified
   end
-  def authenticated?(attribute, token)
-    digest = send("#{attribute}_digest")
+  def authenticated?(token_type, token)
+    content = send("#{token_type}_encrypted")
     return false if digest.nil?
-    BCrypt::Password.new(digest).is_password?(token)
+    BCrypt::Password.new(content).is_password?(token)
   end
 
-  def create_reset_digest
+  def create_reset_encrypted_token
     self.reset_token = User.new_token
-    update_attribute(:reset_digest,  User.encrypt_content(reset_token))
+    update_attribute(:reset_digest, User.encrypt_content(reset_token))
     update_attribute(:reset_at, Time.zone.now)
   end
 
@@ -74,7 +75,7 @@ class User < ActiveRecord::Base
 
   :private
 
-    def convertir_email
+    def format_email
       self.email = email.downcase
     end
 
