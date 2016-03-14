@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       if user.verified
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_to recherches_path
+        redirect_to root_path
       else
         flash[:danger] = "Désolé votre compte n'a pas été encore activé"
         redirect_to root_path
