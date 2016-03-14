@@ -2,7 +2,7 @@ class AccountMailer < ApplicationMailer
 
   def account_verification(user)
     @user = user
-    mail to: "remi.guillaume.montreal@gmail.com" , subject: "Activation de compte"
+    mail to: "roadquestapp@gmail.com" , subject: "Activation de compte"
   end
 
 
