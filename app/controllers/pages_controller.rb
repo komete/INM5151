@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :logged_user, only: [:cartes, :offres,]
+
   def acceuil
 
   end
