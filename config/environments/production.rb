@@ -79,6 +79,7 @@ Rails.application.configure do
 
   config.force_ssl = true
 
+  # Config pour le mailer cf. Sengrid
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'roadquest.herokuapp.com'
@@ -93,4 +94,8 @@ Rails.application.configure do
       :enable_starttls_auto => true
   }
 
+  # Config pour React.js
+  MyApp::Application.configure do
+    config.react.variant = :production
+  end
 end
