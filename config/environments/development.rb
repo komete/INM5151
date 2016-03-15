@@ -28,7 +28,5 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   # Config pour React.js
-  MyApp::Application.configure do
-    config.react.variant = :development
-  end
+  config.react.variant = :development
 end

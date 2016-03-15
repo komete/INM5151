@@ -95,7 +95,5 @@ Rails.application.configure do
   }
 
   # Config pour React.js
-  MyApp::Application.configure do
-    config.react.variant = :production
-  end
+  config.react.variant = :production
 end
