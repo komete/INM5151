@@ -6,7 +6,7 @@ include GeoRuby::Shp4r
 include GeoRuby::SimpleFeatures
 
 class PagesController < ApplicationController
-  before_action :logged_user, only: [:cartes, :offres,]
+  before_action :logged_user, only: [:cartes, :offres, :dashboard]
   before_action :logged_admin, only: [:dashboard]
   def acceuil
 
@@ -37,7 +37,7 @@ class PagesController < ApplicationController
 
   def logged_user
     user = current_user
-    unless logged_in? && user.poste != '1'
+    unless logged_in? && (user.poste != '1' || user.administrateur)
       flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
       redirect_to login_path
     end

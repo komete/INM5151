@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_admin, only: [:gestion]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -42,6 +43,14 @@ class UsersController < ApplicationController
   end
 
   :private
+
+  def correct_user
+    user = current_user
+    unless user.id == params[:id] || user.administrateur
+      flash[:danger] = "Vous n'avez pas l'authorisation d'effectuer cette action !"
+      redirect_to root_path
+    end
+  end
 
   def logged_admin
     user = current_user

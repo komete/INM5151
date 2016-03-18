@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
 
-  resources :users, only: [:new, :create, :edit, :destroy]
+  resources :users, only: [:new, :create, :edit, :update, :destroy]
   resources :account_verifications, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update ]
 
