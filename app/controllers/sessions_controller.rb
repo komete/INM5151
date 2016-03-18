@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
       if user.verified
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_to root_path
+        if user.is_admin?
+          redirect dashboard_path
+        else
+          redirect_to root_path
+        end
       else
         flash[:danger] = "Désolé votre compte n'a pas été encore activé"
         redirect_to root_path

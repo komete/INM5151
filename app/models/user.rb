@@ -53,6 +53,11 @@ class User < ActiveRecord::Base
   def is_verified?
     self.verified
   end
+
+  def is_admin?
+    self.administrateur
+  end
+
   def authenticated?(token_type, token)
     content = send("#{token_type}_digest")
     return false if content.nil?

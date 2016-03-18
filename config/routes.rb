@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'cartes'     => 'pages#cartes'
   get 'recherches' => 'pages#recherches'
   get 'offres'     => 'pages#offres'
+  get 'dashboard'  => 'pages#dashboard'
   get 'signup'     => 'users#new'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

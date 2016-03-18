@@ -16,6 +16,7 @@ gem 'react-rails', '~> 1.6.0'
 gem 'geocoder',    '1.3.1'
 gem 'gmaps4rails', '2.1.2'
 gem 'georuby',     '2.5.2'
+gem 'dbf',         '3.0.5'
 
 group :development do
   gem 'sqlite3',     '1.3.9'
