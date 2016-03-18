@@ -26,8 +26,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:succes] = "Utilisateur mis à jours"
-      redirect_to user_path
+      flash[:success] = "Utilisateur mis à jours"
+      if @user.administrateur?
+        redirect_to users_path
+      else
+        redirect_to root_path
+      end
     else
       render 'edit'
     end

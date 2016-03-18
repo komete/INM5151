@@ -13,7 +13,7 @@
     <% end %>
     <% if logged_in? %>
         <% @user = current_user%>
-      <li><%=link_to ""+@user.nom+" "+@user.prenom, root_path %></li>
+      <li><%=link_to ""+@user.nom+" "+@user.prenom, edit_user_path(@user) %></li>
     <% end %>
   </ul>
 </div>
