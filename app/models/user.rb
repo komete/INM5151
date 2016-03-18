@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     update_attribute(:verified_at, Time.zone.now)
   end
 
+  def is_now_desactivated
+    update_attribute(:verified, false)
+  end
+
   def create_verified_encrypted_token
     self.verification_token  = User.new_token
     self.verified_digest = User.encrypt_content(verification_token)
