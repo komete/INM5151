@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_admin, only: [:gestion]
+  all_application_helpers
+
+  before_action :logged_admin, only: [:gestion, :activation]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
@@ -42,20 +44,19 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def activation
+    @user = User.find(params[:id])
+    @user.is_now_verified
+    AccountMailer.send_notification(user).deliver_now
+    redirect_to gestion_path
+  end
+
   :private
 
   def correct_user
     user = current_user
     unless user.id == params[:id] || user.administrateur
       flash[:danger] = "Vous n'avez pas l'authorisation d'effectuer cette action !"
-      redirect_to root_path
-    end
-  end
-
-  def logged_admin
-    user = current_user
-    unless logged_in? && user.administrateur
-      flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
       redirect_to root_path
     end
   end

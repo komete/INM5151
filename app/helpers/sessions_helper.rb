@@ -37,4 +37,20 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+
+  def logged_user
+    user = current_user
+    unless logged_in? && (user.poste != '1' || user.administrateur)
+      flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
+      redirect_to login_path
+    end
+  end
+
+  def logged_admin
+    user = current_user
+    unless logged_in? && user.administrateur
+      flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
+      redirect_to root_path
+    end
+  end
 end

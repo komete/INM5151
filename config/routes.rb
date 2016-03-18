@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'dashboard'  => 'pages#dashboard'
   get 'signup'     => 'users#new'
   get 'users'      => 'users#gestion'
+  put 'users/:id'  => 'users#activation'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
