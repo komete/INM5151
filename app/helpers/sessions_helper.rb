@@ -52,5 +52,6 @@ module SessionsHelper
       flash[:danger] = "Vous n'avez pas l'authorisation d'être sur cette page !"
       redirect_to root_path
     end
+    true
   end
 end

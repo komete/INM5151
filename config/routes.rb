@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'offres'       => 'pages#offres'
   get 'dashboard'    => 'pages#dashboard'
   get 'signup'       => 'users#new'
-  get '/users/gestion'        => 'users#gestion'
+  get 'users/gestion'        => 'users#gestion'
   put 'users/:id'    => 'users#activation'
   get 'login'        => 'sessions#new'
   post 'login'       => 'sessions#create'
