@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.is_now_desactivated
     flash[:info] = "Utilisateur désactivé"
-    redirect_to gestion_path
+    redirect_to users_gestion_path
   end
 
   def gestion
@@ -51,8 +51,8 @@ class UsersController < ApplicationController
   def activation
     @user = User.find(params[:id])
     @user.is_now_verified
-    AccountMailer.send_notification(user).deliver_now
-    redirect_to gestion_path
+    AccountMailer.send_notification(@user).deliver_now
+    redirect_to users_gestion_path
   end
 
   :private
