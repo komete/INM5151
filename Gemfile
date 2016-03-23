@@ -18,6 +18,8 @@ gem 'gmaps4rails', '2.1.2'
 gem 'georuby',     '2.5.2'
 gem 'dbf',         '3.0.5'
 
+gem 'frontend-generators'
+
 group :development do
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
