@@ -19,6 +19,7 @@ gem 'georuby',     '2.5.2'
 gem 'dbf',         '3.0.5'
 
 gem 'frontend-generators'
+gem 'iconv'
 
 group :development do
   gem 'sqlite3',     '1.3.9'

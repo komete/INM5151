@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'roads'        => 'roads#show'
+  get 'data/select'  => 'data#select'
   post 'data/import' => 'data#import'
 
   resources :users, only: [:new, :create, :edit, :update, :destroy]

@@ -91,6 +91,7 @@ GEM
       guard (~> 2.0)
       minitest (>= 3.0)
     i18n (0.7.0)
+    iconv (1.0.4)
     jbuilder (2.2.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -237,6 +238,7 @@ DEPENDENCIES
   georuby (= 2.5.2)
   gmaps4rails (= 2.1.2)
   guard-minitest (= 2.3.1)
+  iconv
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
   mini_backtrace (= 0.1.3)
