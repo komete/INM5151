@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'data/select'
+
   get 'roads/new'
 
   root 'pages#acceuil'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'roads'        => 'roads#show'
-  post 'roads/import' => 'roads#import'
+  post 'data/import' => 'data#import'
 
   resources :users, only: [:new, :create, :edit, :update, :destroy]
   resources :account_verifications, only: [:edit]
