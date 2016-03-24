@@ -44,5 +44,7 @@ class DataController < ApplicationController
         shape_table_record.save
       end
     end
+    flash[:success] = "Données importées avec succès"
+    redirect_to data_select_path
   end
 end
