@@ -2,7 +2,7 @@ require 'georuby'
 require 'geo_ruby/shp'
 require 'geo_ruby/shp4r/shp'
 require 'iconv'
-require 'spatial_adapter/postgresql'
+#require 'spatial_adapter/postgresql'
 include GeoRuby::Shp4r
 include GeoRuby::SimpleFeatures
 class DataController < ApplicationController
@@ -15,7 +15,6 @@ class DataController < ApplicationController
 
   def import
     @shpfile = "/home/remi/shapes/" + params[:file]
-    #@shpfile = File.basename(params[:file])
     shape_name = params[:file]
     shape_name =~ /(.*)\.shp/
     table_name = $1.downcase
