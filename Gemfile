@@ -17,7 +17,7 @@ gem 'geocoder',    '1.3.1'
 gem 'gmaps4rails', '2.1.2'
 gem 'georuby',     '2.5.2'
 gem 'dbf',         '3.0.5'
-
+gem 'spatial_adapter', '1.2.0'
 gem 'frontend-generators'
 gem 'iconv'
 
