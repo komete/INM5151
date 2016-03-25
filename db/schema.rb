@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160310154929) do
 
-# Could not dump table "troncon_route" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
   create_table "users", force: :cascade do |t|
     t.string   "nom"
     t.string   "prenom"

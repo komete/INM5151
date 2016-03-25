@@ -29,8 +29,8 @@ class DataController < ApplicationController
       shp.fields.each do |field|
         ActiveRecord::Schema.add_column(table_name, field.name.downcase, shp_field_type(field.type))
       end
-      ActiveRecord::Schema.add_column(table_name,"the_geom",shp_geom_type(shp.shp_type),:null => true)
-      ActiveRecord::Schema.add_index(table_name,"the_geom",:spatial => true)
+      #ActiveRecord::Schema.add_column(table_name,"the_geom",shp_geom_type(shp.shp_type),:null => true)
+      #ActiveRecord::Schema.add_index(table_name,"the_geom",:spatial => true)
 
       dataTable = Class.new(ActiveRecord::Base) do
         set_table_name table_name
@@ -40,7 +40,7 @@ class DataController < ApplicationController
         shp.fields.each do |field|
           shape_table_record[field.name.downcase] = Iconv.conv("UTF8", "LATIN1", shape.data[field.name])
         end
-        shape_table_record.the_geom = shape.geometry
+        #shape_table_record.the_geom = shape.geometry
         shape_table_record.save
       end
     end
