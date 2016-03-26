@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:success] = "Utilisateur mis à jours"
       if @user.administrateur?
-        redirect_to users_path
+        redirect_to dashboard_path
       else
         redirect_to root_path
       end
