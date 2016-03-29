@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'data/select'
-
-  get 'roads/new'
-
   root 'pages#acceuil'
   get 'acceuil'      => 'pages#acceuil'
   get 'cartes'       => 'pages#cartes'
@@ -19,6 +15,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   get 'roads'        => 'roads#show'
+  get 'roads/new'
   get 'data/select'  => 'data#select'
   post 'data/import' => 'data#import'
 
