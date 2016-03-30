@@ -1,5 +1,8 @@
 class TronconRoute < ActiveRecord::Base
-  validates :id_rte500,  presence: true, uniqueness: true
+  belongs_to :point_repere_init, :class_name => "PointRepere"
+  belongs_to :point_repere_final, :class_name => "PointRepere"
+  belongs_to :num_route, :class_name => "Route"
+
   validates :vocation, presence:true
   validates :nb_chausse, presence:true
   validates :nb_voies, presence:true

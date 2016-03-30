@@ -1,8 +1,8 @@
 class CreatePointReperes < ActiveRecord::Migration
   def change
     create_table :point_reperes do |t|
-      t.string :latitude
-      t.string :longitude
+      t.float :latitude
+      t.float :longitude
       t.string :projection
 
       t.timestamps null: false

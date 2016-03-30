@@ -1,6 +1,4 @@
 class PointReperesController < ApplicationController
-  geocoded_by :latitude => :latitude, :longitude => :longitude
-  after_validation :geocode
 
   all_application_helpers
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :routes
   root 'pages#acceuil'
   get 'acceuil'      => 'pages#acceuil'
   get 'cartes'       => 'pages#cartes'
