@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'troncon_route/import' => 'troncon_routes#import'
 
   resources :troncon_routes
+  resources :point_reperes
   resources :users, only: [:new, :create, :edit, :update, :destroy]
   resources :account_verifications, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]

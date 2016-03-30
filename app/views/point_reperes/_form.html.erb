@@ -1,0 +1,29 @@
+<%= form_for(@point_repere) do |f| %>
+  <% if @point_repere.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@point_repere.errors.count, "error") %> prohibited this point_repere from being saved:</h2>
+
+      <ul>
+      <% @point_repere.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :projection %><br>
+    <%= f.text_field :projection %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,21 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330142034) do
+ActiveRecord::Schema.define(version: 20160330153716) do
 
-  create_table "troncon_route", force: :cascade do |t|
-    t.integer "id_rte500"
-    t.string  "vocation"
-    t.string  "nb_chausse"
-    t.string  "nb_voies"
-    t.string  "etat"
-    t.string  "acces"
-    t.string  "res_vert"
-    t.string  "sens"
-    t.string  "res_europe"
-    t.string  "num_route"
-    t.string  "class_adm"
-    t.float   "longueur"
+  create_table "point_reperes", force: :cascade do |t|
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "projection"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "troncon_routes", force: :cascade do |t|

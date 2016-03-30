@@ -35,7 +35,7 @@ class TronconRoutesController < ApplicationController
       end
     end
     flash[:success] = "Données importées avec succès"
-    redirect_to data_select_path
+    redirect_to troncon_routes_path
   end
 
   def index
@@ -94,31 +94,5 @@ class TronconRoutesController < ApplicationController
 
   def troncon_route_params
     params.require(:troncon_route).permit(:id_rte500, :vocation, :nb_chausse, :nb_voies, :etat, :acces, :res_vert, :sens, :res_europe, :num_route, :class_adm, :longueur)
-  end
-
-  def shp_field_type(type)
-    case type
-      when 'N' then
-        :integer
-      when 'F' then
-        :float
-      when 'D' then
-        :date
-      else
-        :string
-    end
-  end
-
-  def shp_geom_type(type)
-    case type
-      when ShpType::POINT then
-        :point
-      when ShpType::POLYLINE then
-        :multi_line_string
-      when ShpType::POLYGON then
-        :multi_polygon
-      when ShpType::MULTIPOINT then
-        :multi_point
-    end
   end
 end

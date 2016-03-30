@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Point Reperes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Projection</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @point_reperes.each do |point_repere| %>
+      <tr>
+        <td><%= point_repere.latitude %></td>
+        <td><%= point_repere.longitude %></td>
+        <td><%= point_repere.projection %></td>
+        <td><%= link_to 'Show', point_repere %></td>
+        <td><%= link_to 'Edit', edit_point_repere_path(point_repere) %></td>
+        <td><%= link_to 'Destroy', point_repere, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Point repere', new_point_repere_path %>
