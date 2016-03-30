@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   delete 'logout'    => 'sessions#destroy'
   get 'password_resets/new'
   get 'password_resets/edit'
-  get 'roads'        => 'roads#show'
-  get 'roads/new'
   get 'data/select'  => 'data#select'
   post 'data/import' => 'data#import'
+  get 'troncon_route/select' => 'troncon_routes#select'
+  post 'troncon_route/import' => 'troncon_routes#import'
 
+  resources :troncon_routes
   resources :users, only: [:new, :create, :edit, :update, :destroy]
   resources :account_verifications, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
