@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :works
+  get 'travaux/new'
+
   resources :routes
   root 'pages#acceuil'
   get 'acceuil'      => 'pages#acceuil'

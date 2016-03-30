@@ -93,6 +93,6 @@ class TronconRoutesController < ApplicationController
   end
 
   def troncon_route_params
-    params.require(:troncon_route).permit(:id_rte500, :vocation, :nb_chausse, :nb_voies, :etat, :acces, :res_vert, :sens, :res_europe, :num_route, :class_adm, :longueur)
+    params.require(:troncon_route).permit(:vocation, :nb_chausse, :nb_voies, :etat, :acces, :res_vert, :sens, :res_europe, :num_route, :class_adm, :longueur)
   end
 end
