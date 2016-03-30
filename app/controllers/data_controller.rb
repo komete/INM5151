@@ -3,10 +3,11 @@ require 'geo_ruby/shp'
 require 'geo_ruby/shp4r/shp'
 require 'iconv'
 require 'active_record'
-
 #require 'spatial_adapter/postgresql'
+
 include GeoRuby::Shp4r
 include GeoRuby::SimpleFeatures
+
 class DataController < ApplicationController
   all_application_helpers
 
@@ -31,7 +32,12 @@ class DataController < ApplicationController
     ShpFile.open(@shpfile) do |shp|
       shp.fields.each do |field|
         puts field.type
-        ActiveRecord::Schema.add_column(table_name, field.name.downcase, shp_field_type(field.type))
+        if field.name.downcase == 'longueur'
+          # Correction errreur d'un shapefile.
+          ActiveRecord::Schema.add_column(table_name, field.name.downcase, shp_field_type("F"))
+        else
+          ActiveRecord::Schema.add_column(table_name, field.name.downcase, shp_field_type(field.type))
+        end
       end
       #ActiveRecord::Schema.add_column(table_name,"the_geom",shp_geom_type(shp.shp_type),:null => true)
       #ActiveRecord::Schema.add_index(table_name,"the_geom",:spatial => true)
@@ -45,11 +51,10 @@ class DataController < ApplicationController
         shp.fields.each do |field|
           donnees = shape.data[field.name]
           if donnees.is_a? String
-            puts donnees.encoding
-            p donnees
-            #shape_table_record[field.name.downcase] = Iconv.conv("UTF-8", "ASCII-8BIT", donnees)
-            shape_table_record[field.name.downcase] = donnees.force_encoding('UTF-8')
+            # Test: puts donnees.encoding
+            shape_table_record[field.name.downcase] = Iconv.conv('UTF-8', 'iso8859-1', donnees)
           else
+            p donnees , field.type
             shape_table_record[field.name.downcase] = donnees
           end
         end
