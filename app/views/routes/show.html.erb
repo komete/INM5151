@@ -1,9 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Routes') %>
+<section>
+  <div class="container">
+    <div class="page-header">
+      <div class="container center">
+        <h3 class="session">Visualisation</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-<p>
-  <strong>Num route:</strong>
-  <%= @route.num_route %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+        <p>
+          <strong>Num route:</strong>
+          <%= @route.num_route %>
+        </p>
+
+        <%= link_to 'Éditer', edit_route_path(@route) %> |
+        <%= link_to 'Retour', routes_path %>
+      </div>
+    </div>
+  </div>
+</section>
+

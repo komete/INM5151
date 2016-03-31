@@ -14,6 +14,7 @@ class CreateTronconRoutes < ActiveRecord::Migration
       t.float :longueur
       t.references :point_repere_final
       t.references :point_repere_init
+      t.references :id_travaux
 
       t.timestamps null: false
     end

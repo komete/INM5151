@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Travaux') %>
+<section>
+  <div class="container">
+    <div class="page-header">
+      <div class="container center">
+        <h3 class="session">Visualisation</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-<p>
-  <strong>Type:</strong>
-  <%= @work.type %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @work.description %>
-</p>
+        <p>
+          <strong>Type:</strong>
+          <%= @work.type %>
+        </p>
 
-<p>
-  <strong>Debut:</strong>
-  <%= @work.debut %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @work.description %>
+        </p>
 
-<p>
-  <strong>Fin:</strong>
-  <%= @work.fin %>
-</p>
+        <p>
+          <strong>Debut:</strong>
+          <%= @work.debut %>
+        </p>
 
-<p>
-  <strong>Itervenant:</strong>
-  <%= @work.itervenant %>
-</p>
+        <p>
+          <strong>Fin:</strong>
+          <%= @work.fin %>
+        </p>
 
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+        <p>
+          <strong>Itervenant:</strong>
+          <%= @work.intervenant %>
+        </p>
+
+        <%= link_to 'Éditer', edit_work_path(@work) %> |
+        <%= link_to 'Retour', works_path %>
+
+      </div>
+    </div>
+  </div>
+</section>

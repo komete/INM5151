@@ -1,64 +1,76 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Tronçons') %>
+<section>
+  <div class="container">
+    <div class="page-header">
+      <div class="container center">
+        <h3 class="session">Visualisation</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
 
-<p>
-  <strong>Id rte500:</strong>
-  <%= @troncon_route.id_rte500 %>
-</p>
 
-<p>
-  <strong>Vocation:</strong>
-  <%= @troncon_route.vocation %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nb chausse:</strong>
-  <%= @troncon_route.nb_chausse %>
-</p>
+        <p>
+          <strong>Vocation:</strong>
+          <%= @troncon_route.vocation %>
+        </p>
 
-<p>
-  <strong>Nb voies:</strong>
-  <%= @troncon_route.nb_voies %>
-</p>
+        <p>
+          <strong>Nb chausse:</strong>
+          <%= @troncon_route.nb_chausse %>
+        </p>
 
-<p>
-  <strong>Etat:</strong>
-  <%= @troncon_route.etat %>
-</p>
+        <p>
+          <strong>Nb voies:</strong>
+          <%= @troncon_route.nb_voies %>
+        </p>
 
-<p>
-  <strong>Acces:</strong>
-  <%= @troncon_route.acces %>
-</p>
+        <p>
+          <strong>Etat:</strong>
+          <%= @troncon_route.etat %>
+        </p>
 
-<p>
-  <strong>Res vert:</strong>
-  <%= @troncon_route.res_vert %>
-</p>
+        <p>
+          <strong>Acces:</strong>
+          <%= @troncon_route.acces %>
+        </p>
 
-<p>
-  <strong>Sens:</strong>
-  <%= @troncon_route.sens %>
-</p>
+        <p>
+          <strong>Res vert:</strong>
+          <%= @troncon_route.res_vert %>
+        </p>
 
-<p>
-  <strong>Res europe:</strong>
-  <%= @troncon_route.res_europe %>
-</p>
+        <p>
+          <strong>Sens:</strong>
+          <%= @troncon_route.sens %>
+        </p>
 
-<p>
-  <strong>Num route:</strong>
-  <%= @troncon_route.num_route %>
-</p>
+        <p>
+          <strong>Res europe:</strong>
+          <%= @troncon_route.res_europe %>
+        </p>
 
-<p>
-  <strong>Class adm:</strong>
-  <%= @troncon_route.class_adm %>
-</p>
+        <p>
+          <strong>Num route:</strong>
+          <%= @troncon_route.num_route %>
+        </p>
 
-<p>
-  <strong>Longueur:</strong>
-  <%= @troncon_route.longueur %>
-</p>
+        <p>
+          <strong>Class adm:</strong>
+          <%= @troncon_route.class_adm %>
+        </p>
 
-<%= link_to 'Edit', edit_troncon_route_path(@troncon_route) %> |
-<%= link_to 'Back', troncon_routes_path %>
+        <p>
+          <strong>Longueur:</strong>
+          <%= @troncon_route.longueur %>
+        </p>
+
+        <%= link_to 'Éditer', edit_troncon_route_path(@troncon_route) %> |
+        <%= link_to 'Retour', troncon_routes_path %>
+      </div>
+    </div>
+  </div>
+</section>
+

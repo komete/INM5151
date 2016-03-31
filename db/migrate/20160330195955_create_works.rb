@@ -5,7 +5,7 @@ class CreateWorks < ActiveRecord::Migration
       t.text :description
       t.datetime :debut, :null => false, :default => Time.now
       t.datetime :fin
-      t.string :itervenant
+      t.string :intervenant
 
       t.timestamps null: false
     end

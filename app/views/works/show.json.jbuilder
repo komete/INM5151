@@ -1,1 +1,1 @@
-json.extract! @work, :id, :type, :description, :debut, :fin, :itervenant, :created_at, :updated_at
+json.extract! @work, :id, :type, :description, :debut, :fin, :intervenant, :created_at, :updated_at
