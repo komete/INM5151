@@ -7,5 +7,6 @@ class PointRepere < ActiveRecord::Base
 
   validates :latitude , presence:true
   validates :longitude , presence:true
-  validates :projection , presence:true
+  VALID_PROJECTION_REGEX = /\AESPG:[0-9]{4}\z/i
+  validates :projection , presence:true, format: {with: VALID_PROJECTION_REGEX}
 end

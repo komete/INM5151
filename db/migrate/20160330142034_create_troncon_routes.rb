@@ -12,9 +12,9 @@ class CreateTronconRoutes < ActiveRecord::Migration
       t.string :num_route
       t.string :class_adm
       t.float :longueur
-      t.references :point_repere_final
-      t.references :point_repere_init
-      t.references :id_travaux
+      t.references :point_reperes, :point_repere_final
+      t.references :point_reperes,:point_repere_init
+      t.references :works, :id_travaux
 
       t.timestamps null: false
     end

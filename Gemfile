@@ -11,16 +11,15 @@ gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'bcrypt',       '3.1.7'
-
 gem 'react-rails', '~> 1.6.0'
 gem 'geocoder',    '1.3.1'
 gem 'gmaps4rails', '2.1.2'
 gem 'georuby',     '2.5.2'
 gem 'dbf',         '3.0.5'
-#gem 'spatial_adapter', '1.2.0'
 gem 'frontend-generators'
 gem 'iconv'
 gem 'heritage'
+#gem 'spatial_adapter', '1.2.0'
 
 group :development do
   gem 'sqlite3',     '1.3.9'

@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 20160330195955) do
     t.string   "num_route"
     t.string   "class_adm"
     t.float    "longueur"
+    t.integer  "point_reperes_id"
     t.integer  "point_repere_final_id"
     t.integer  "point_repere_init_id"
+    t.integer  "works_id"
     t.integer  "id_travaux_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160330195955) do
   create_table "works", force: :cascade do |t|
     t.string   "type"
     t.text     "description"
-    t.datetime "debut",       default: '2016-03-31 13:40:59', null: false
+    t.datetime "debut",       default: '2016-03-31 14:56:10', null: false
     t.datetime "fin"
     t.string   "intervenant"
     t.datetime "created_at",                                  null: false
