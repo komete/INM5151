@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401141540) do
+ActiveRecord::Schema.define(version: 20160401145726) do
+
+  create_table "marquage_lineaires", force: :cascade do |t|
+    t.float    "largeur_bande"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "marquage_specialises", force: :cascade do |t|
+    t.string   "type_travaux"
+    t.float    "dimension"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "marquages", force: :cascade do |t|
-    t.string   "nom"
+    t.integer  "heir_id"
+    t.string   "heir_type"
     t.string   "type"
     t.string   "couleur"
     t.integer  "work_id"

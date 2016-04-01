@@ -1,7 +1,8 @@
 class CreateMarquages < ActiveRecord::Migration
-  def change
+  def self.up
     create_table :marquages do |t|
-      t.string :nom
+      t.integer :heir_id
+      t.string :heir_type
       t.string :type
       t.string :couleur
       t.references :work, index: true, foreign_key: true
@@ -9,5 +10,9 @@ class CreateMarquages < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :marquages, [:work_id, :created_at]
+  end
+
+  def self.down
+    drop_table :marquages
   end
 end
