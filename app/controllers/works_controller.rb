@@ -72,6 +72,6 @@ class WorksController < ApplicationController
     end
 
     def work_params
-      params.require(:work).permit(:type, :description, :debut, :fin, :intervenant)
+      params.require(:work).permit(:type_work, :description, :debut, :fin, :intervenant)
     end
 end

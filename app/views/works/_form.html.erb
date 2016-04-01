@@ -1,31 +1,22 @@
 <%= form_for(@work) do |f| %>
-    <% if @work.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@work.errors.count, "error") %> prohibited this work from being saved:</h2>
 
-          <ul>
-            <% @work.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+    <%= render 'shared/error_works_messages' %>
 
     <div class="field">
-      <%= f.label :type %><br>
-      <%= f.text_field :type, class: 'form-control' %>
+      <%= f.label 'Type' %><br>
+      <%= f.text_field :type_work, class: 'form-control' %>
     </div>
     <div class="field">
-      <%= f.label :description %><br>
+      <%= f.label 'Déscription' %><br>
       <%= f.text_area :description, class: 'form-control' %>
     </div>
     <div class="field">
-      <%= f.label :debut %><br>
-      <%= f.datetime_select :debut, class: 'form-control' %>
+      <%= f.label 'Date de début' %><br>
+      <%= f.date_select :debut, class: 'form-control' %>
     </div>
     <div class="field">
-      <%= f.label :fin %><br>
-      <%= f.datetime_select :fin, class: 'form-control' %>
+      <%= f.label 'Date de fin' %><br>
+      <%= f.date_select :fin, class: 'form-control' %>
     </div>
     <div class="field">
       <%= f.label :intervenant %><br>

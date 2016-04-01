@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20160401145726) do
   end
 
   create_table "works", force: :cascade do |t|
-    t.string   "type"
+    t.string   "type_work"
     t.text     "description"
     t.date     "debut",            default: '2016-04-01', null: false
     t.date     "fin"
