@@ -8,9 +8,8 @@ include GeoRuby::SimpleFeatures
 class TronconRoutesController < ApplicationController
   all_application_helpers
 
-  before_action :logged_user, only: [:edit, :update, :show]
-  before_action :logged_admin, only: [:new, :create, :destroy]
-  before_action :set_troncon_route, only: [:show, :edit, :update, :destroy]
+  before_action :logged_user, only: [:show]
+  before_action :set_troncon_route, only: [:show]
 
   def select
 
@@ -45,46 +44,7 @@ class TronconRoutesController < ApplicationController
   def show
   end
 
-  def new
-    @troncon_route = TronconRoute.new
-  end
 
-  def edit
-  end
-
-  def create
-    @troncon_route = TronconRoute.new(troncon_route_params)
-
-    respond_to do |format|
-      if @troncon_route.save
-        format.html { redirect_to @troncon_route, notice: 'Troncon route was successfully created.' }
-        format.json { render :show, status: :created, location: @troncon_route }
-      else
-        format.html { render :new }
-        format.json { render json: @troncon_route.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @troncon_route.update(troncon_route_params)
-        format.html { redirect_to @troncon_route, notice: 'Troncon route was successfully updated.' }
-        format.json { render :show, status: :ok, location: @troncon_route }
-      else
-        format.html { render :edit }
-        format.json { render json: @troncon_route.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def destroy
-    @troncon_route.destroy
-    respond_to do |format|
-      format.html { redirect_to troncon_routes_url, notice: 'Troncon route was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   :private
 

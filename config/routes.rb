@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :works
-  get 'travaux/new'
-
-  resources :routes
   root 'pages#acceuil'
   get 'acceuil'      => 'pages#acceuil'
   get 'cartes'       => 'pages#cartes'
@@ -22,8 +18,10 @@ Rails.application.routes.draw do
   post 'data/import' => 'data#import'
   get 'troncon_route/select' => 'troncon_routes#select'
   post 'troncon_route/import' => 'troncon_routes#import'
-
-  resources :troncon_routes
+  resources :works
+  get 'travaux/new'
+  resources :routes, only: [:index, :show]
+  resources :troncon_routes, only: [:select, :index, :import, :show]
   resources :point_reperes
   resources :users, only: [:new, :create, :edit, :update, :destroy]
   resources :account_verifications, only: [:edit]
