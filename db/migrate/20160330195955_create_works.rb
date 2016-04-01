@@ -3,8 +3,8 @@ class CreateWorks < ActiveRecord::Migration
     create_table :works do |t|
       t.string :type
       t.text :description
-      t.datetime :debut, :null => false, :default => Time.now
-      t.datetime :fin
+      t.date :debut, :null => false, :default => Time.zone.today
+      t.date :fin
       t.string :intervenant
       t.references :troncon_route, index: true, foreign_key: true
 

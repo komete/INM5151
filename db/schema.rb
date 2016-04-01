@@ -11,7 +11,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310154929) do
+ActiveRecord::Schema.define(version: 20160401141540) do
+
+  create_table "marquages", force: :cascade do |t|
+    t.string   "nom"
+    t.string   "type"
+    t.string   "couleur"
+    t.integer  "work_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "marquages", ["work_id", "created_at"], name: "index_marquages_on_work_id_and_created_at"
+  add_index "marquages", ["work_id"], name: "index_marquages_on_work_id"
+
+  create_table "point_reperes", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "projection"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "produits", force: :cascade do |t|
+    t.string   "nom"
+    t.string   "type"
+    t.date     "expiration"
+    t.string   "reference"
+    t.integer  "marquage_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "produits", ["marquage_id", "created_at"], name: "index_produits_on_marquage_id_and_created_at"
+  add_index "produits", ["marquage_id"], name: "index_produits_on_marquage_id"
+
+  create_table "routes", force: :cascade do |t|
+    t.string   "num_route"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "troncon_routes", force: :cascade do |t|
+    t.string   "vocation"
+    t.string   "nb_chausse"
+    t.string   "nb_voies"
+    t.string   "etat"
+    t.string   "acces"
+    t.string   "res_vert"
+    t.string   "sens"
+    t.string   "res_europe"
+    t.string   "num_route"
+    t.string   "class_adm"
+    t.float    "longueur"
+    t.integer  "point_reperes_id"
+    t.integer  "point_repere_final_id"
+    t.integer  "point_repere_init_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "nom"
@@ -32,5 +90,19 @@ ActiveRecord::Schema.define(version: 20160310154929) do
     t.datetime "reset_at"
     t.boolean  "administrateur",  default: false
   end
+
+  create_table "works", force: :cascade do |t|
+    t.string   "type"
+    t.text     "description"
+    t.date     "debut",            default: '2016-04-01', null: false
+    t.date     "fin"
+    t.string   "intervenant"
+    t.integer  "troncon_route_id"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
+
+  add_index "works", ["troncon_route_id", "created_at"], name: "index_works_on_troncon_route_id_and_created_at"
+  add_index "works", ["troncon_route_id"], name: "index_works_on_troncon_route_id"
 
 end
