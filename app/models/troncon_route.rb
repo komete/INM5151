@@ -2,7 +2,7 @@ class TronconRoute < ActiveRecord::Base
   belongs_to :point_repere_init, :class_name => "PointRepere"
   belongs_to :point_repere_final, :class_name => "PointRepere"
   belongs_to :num_route, :class_name => "Route"
-  has_many :works, :class_name => "Work", foreign_key: "id_travaux"
+  has_many :works
 
   validates :vocation, presence:true
   validates :nb_chausse, presence:true

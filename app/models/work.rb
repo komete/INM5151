@@ -1,5 +1,5 @@
 class Work < ActiveRecord::Base
-  belongs_to :id_travaux, :class_name => "TronconRoute"
+  belongs_to :troncon_route
 
   validates :type, presence:true
   validates :description, presence:true
