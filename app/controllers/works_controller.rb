@@ -5,64 +5,41 @@ class WorksController < ApplicationController
   before_action :logged_admin, only: [:new, :create, :destroy]
   before_action :set_work, only: [:show, :edit, :update, :destroy]
 
-  # GET /works
-  # GET /works.json
   def index
     @works = Work.all
   end
 
-  # GET /works/1
-  # GET /works/1.json
   def show
   end
 
-  # GET /works/new
   def new
+    @id = params[:id]
     @work = Work.new
   end
 
-  # GET /works/1/edit
+
   def edit
   end
 
-  # POST /works
-  # POST /works.json
   def create
-    @work = Work.new(work_params)
-
-    respond_to do |format|
-      if @work.save
-        format.html { redirect_to @work, notice: 'Work was successfully created.' }
-        format.json { render :show, status: :created, location: @work }
-      else
-        format.html { render :new }
-        format.json { render json: @work.errors, status: :unprocessable_entity }
-      end
-    end
+    @id = params[:troncon_id]
+    date = params[:work]["debut(1i)"] + "-" +  params[:work]["debut(2i)"]  + "-" +  params[:work]["debut(3i)"]
+    @work = Work.new( :type_work=>params[:work][:type_work],:description=>params[:work][:description],:debut=>date,:fin=>params[:work][:fin],
+                      :intervenant=>params[:work][:intervenant], :troncon_route_id => @id)
+    @work.save
+    flash[:success] = "Travail créé"
+    redirect_to @work
   end
 
-  # PATCH/PUT /works/1
-  # PATCH/PUT /works/1.json
+
   def update
-    respond_to do |format|
-      if @work.update(work_params)
-        format.html { redirect_to @work, notice: 'Work was successfully updated.' }
-        format.json { render :show, status: :ok, location: @work }
-      else
-        format.html { render :edit }
-        format.json { render json: @work.errors, status: :unprocessable_entity }
-      end
-    end
+   @work.update(work_params)
+   redirect_to @work
   end
 
-  # DELETE /works/1
-  # DELETE /works/1.json
+
   def destroy
     @work.destroy
-    respond_to do |format|
-      format.html { redirect_to works_url, notice: 'Work was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -72,6 +49,6 @@ class WorksController < ApplicationController
     end
 
     def work_params
-      params.require(:work).permit(:type_work, :description, :debut, :intervenant)
+      params.require(:work).permit(:type_work, :description, :debut, :fin, :intervenant)
     end
 end

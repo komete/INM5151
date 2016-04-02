@@ -18,6 +18,7 @@
       <%= f.label :intervenant %><br>
       <%= f.text_field :intervenant, class: 'form-control' %>
     </div>
+    <%= hidden_field_tag(:troncon_id, @id) %>
     <div class="actions">
       <%= f.submit "Créer", class: 'btn btn-primary' %>
     </div>
