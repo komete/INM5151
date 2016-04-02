@@ -1,6 +1,7 @@
 class Marquage < ActiveRecord::Base
-  acts_as_predecessor
-
+  actable
   belongs_to :work
   has_many :produits
+
+  #acts_as_predecessor
 end

@@ -19,8 +19,11 @@ Rails.application.routes.draw do
   get 'troncon_route/select' => 'troncon_routes#select'
   post 'troncon_route/import' => 'troncon_routes#import'
   get 'marquages/new'
+
   resources :works
   resources :marquages
+  resources :marquage_lineaires, only: [:show]
+  resources :marquage_specialises, only: [:show]
   resources :routes, only: [:index, :show]
   resources :troncon_routes, only: [:select, :index, :import, :show]
   resources :point_reperes

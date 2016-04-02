@@ -1,3 +1,3 @@
-class MarquageLineaire < ActiveRecord::Base
-  acts_as_heir_of :marquage
+class MarquageLineaire < ActiveRecord::Bas
+  acts_as :marquage
 end

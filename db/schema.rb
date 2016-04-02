@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160401145726) do
   end
 
   create_table "marquages", force: :cascade do |t|
-    t.integer  "heir_id"
-    t.string   "heir_type"
+    t.integer  "actable_id"
+    t.string   "actable_type"
     t.string   "type_marquage"
     t.string   "couleur"
     t.integer  "work_id"
