@@ -28,19 +28,19 @@
     </div>
     <div class="field">
       <%= f.label 'Couleur' %><br>
-      <%= f.text_area :couleur, class: 'form-control' %>
+      <%= f.text_field :couleur, class: 'form-control' %>
     </div>
     <div id="lineaire" class="field" style="display: block">
       <%= label_tag('Largeur de bande') %><br>
-      <%= text_field :largeur_bande, class: 'form-control' %>
+      <%= text_field(:marquage_lineaire, :largeur_bande, class: 'form-control') %>
     </div>
     <div class="specialise" class="field" style="display: none">
       <%= label_tag('Type de travaux') %><br>
-      <%= text_field :type_travaux, class: 'form-control' %>
+      <%= text_field(:marquage_specialise, :type_travaux, class: 'form-control') %>
     </div>
     <div  class="specialise" class="field" style="display: none">
       <%= label_tag('Dimensions') %><br>
-      <%= text_field :dimension, class: 'form-control' %>
+      <%= text_field(:marquage_specialise, :dimension, class: 'form-control') %>
     </div>
     <%= hidden_field_tag :work_id, @id %>
     <div class="actions">

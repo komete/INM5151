@@ -1,3 +1,3 @@
-class MarquageLineaire < ActiveRecord::Bas
+class MarquageLineaire < ActiveRecord::Base
   acts_as :marquage
 end
