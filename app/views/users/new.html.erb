@@ -6,6 +6,20 @@
         <h3 class="session">Création du compte utilisateur</h3>
       </div>
     </div>
+    <script>
+      function form_user() {
+        var m = document.getElementById("user_poste");
+        var t = m.options[m.selectedIndex].value;
+        console.log(t);
+        if(t == 5) {
+          var div1 = document.getElementById("entrepreneur");
+          div1.style.display = "block";
+        }else{
+          var div1 = document.getElementById("entrepreneur");
+          div1.style.display = "none";
+        }
+      }
+    </script>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= form_for(@user) do |f| %>
@@ -25,13 +39,19 @@
             <%= f.text_field :username, class: 'form-control' %>
 
             <%= f.label "Poste" %>
-            <%= f.select(:poste, options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Autre', 5]]),{:class => 'form-control'}) %>
+            <%= f.select(:poste, options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Entrepreneur', 5]]),{},
+                         {:class => 'form-control',:onchange => 'form_user();', :onclick => 'form_user();'}) %>
 
             <%= f.label "Code employé" %>
             <%= f.text_field :codeEmploye, class: 'form-control' %>
 
             <%= f.label "Numéro de téléphone" %>
             <%= f.text_field :telephone, class: 'form-control' %>
+
+            <div id="entrepreneur" class="field" style="display: none">
+              <%= label_tag('Référence d\'entreprise') %><br>
+              <%= text_field(:ref_entreprise, :ref_entreprise, class: 'form-control') %>
+            </div>
 
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
