@@ -2,7 +2,7 @@ class CreateProduits < ActiveRecord::Migration
   def change
     create_table :produits do |t|
       t.string :nom
-      t.string :type
+      t.string :type_produit
       t.date :expiration
       t.string :reference
       t.references :marquage, index: true, foreign_key: true

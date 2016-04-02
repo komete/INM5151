@@ -3,7 +3,7 @@ class CreateMarquages < ActiveRecord::Migration
     create_table :marquages do |t|
       t.integer :heir_id
       t.string :heir_type
-      t.string :type
+      t.string :type_marquage
       t.string :couleur
       t.references :work, index: true, foreign_key: true
 

@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20160401145726) do
   create_table "marquages", force: :cascade do |t|
     t.integer  "heir_id"
     t.string   "heir_type"
-    t.string   "type"
+    t.string   "type_marquage"
     t.string   "couleur"
     t.integer  "work_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "marquages", ["work_id", "created_at"], name: "index_marquages_on_work_id_and_created_at"
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20160401145726) do
 
   create_table "produits", force: :cascade do |t|
     t.string   "nom"
-    t.string   "type"
+    t.string   "type_produit"
     t.date     "expiration"
     t.string   "reference"
     t.integer  "marquage_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "produits", ["marquage_id", "created_at"], name: "index_produits_on_marquage_id_and_created_at"

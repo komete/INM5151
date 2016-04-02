@@ -25,17 +25,19 @@
           <strong>Debut:</strong>
           <%= @work.debut %>
         </p>
-
-        <p>
-          <strong>Fin:</strong>
-          <%= @work.fin %>
-        </p>
-
+        <% if @work.fin.nil? %>
+            <p>Travaux en cours !</p>
+        <% else %>
+          <p>
+            <strong>Fin:</strong>
+            <%= @work.fin %>
+          </p>
+        <% end %>
         <p>
           <strong>Itervenant:</strong>
           <%= @work.intervenant %>
         </p>
-
+        <%= link_to 'Ajouter marquage',{controller: 'marquages', action: 'new', id: @work}%>
         <%= link_to 'Éditer', edit_work_path(@work) %> |
         <%= link_to 'Retour', works_path %>
 

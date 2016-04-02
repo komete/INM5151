@@ -25,8 +25,8 @@
             <%= f.text_field :username, class: 'form-control' %>
 
             <%= f.label "Poste" %>
-            <%= f.select(:poste,
-                         options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Autre', 5]]),class: 'form-control' ) %>
+            <%= f.select(:poste, options_for_select([['Cadre', 1], ['Analyste', 2], ['Technicien', 3], ['Fournisseur', 4], ['Autre', 5]]),{:class => 'form-control'}) %>
+
             <%= f.label "Code employé" %>
             <%= f.text_field :codeEmploye, class: 'form-control' %>
 
