@@ -1,4 +1,4 @@
-<% provide(:title, 'Marquages') %>
+<% provide(:title, 'Produits') %>
 <section>
   <div class="container">
     <div class="page-header">
@@ -12,19 +12,22 @@
         <p id="notice"><%= notice %></p>
 
         <p>
+          <strong>Nom:</strong>
+          <%= @produit.nom %>
+        </p>
+        <p>
           <strong>Type de marquage:</strong>
-          <%= @marquage.type_marquage %>
+          <%= @produit.type_produit %>
         </p>
         <p>
-          <strong>Couleur:</strong>
-          <%= @marquage.couleur %>
+          <strong>Date d'expiration:</strong>
+          <%= @produit.expiration %>
         </p>
         <p>
-          <strong>Largeur de bande:</strong>
-          <%= @marquage.largeur_bande%>
+        <strong>Numéro de références:</strong>
+        <%= @produit.reference %>
         </p>
-        <%= link_to 'Ajouter un produit', {controller: "produits", action: "new", id: @marquage.id} %>
-        <%= link_to 'Retour travail en cours', @work %>
+        <%= link_to 'Retour au marquage', @marquage %>
       </div>
     </div>
   </div>

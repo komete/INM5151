@@ -12,10 +12,12 @@ class CreateTronconRoutes < ActiveRecord::Migration
       t.string :num_route
       t.string :class_adm
       t.float :longueur
-      t.references :point_reperes, :point_repere_final
-      t.references :point_reperes,:point_repere_init
+      t.references :route, index: true, foreign_key: true
+      t.references :point_repere, :point_repere_final
+      t.references :point_repere,:point_repere_init
 
       t.timestamps null: false
     end
+    add_index :troncon_routes, [:route_id, :created_at]
   end
 end

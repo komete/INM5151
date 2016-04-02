@@ -16,11 +16,12 @@ Rails.application.routes.draw do
   get 'password_resets/edit'
   get 'data/select'  => 'data#select'
   post 'data/import' => 'data#import'
-  get 'troncon_route/select' => 'troncon_routes#select'
-  post 'troncon_route/import' => 'troncon_routes#import'
+  get 'troncon_routes/select' => 'troncon_routes#select'
+  post 'troncon_routes/import' => 'troncon_routes#import'
   get 'marquages/new'
 
   resources :works
+  resources :produits, only: [:show, :create, :new]
   resources :marquages
   resources :marquage_lineaires, only: [:show]
   resources :marquage_specialises, only: [:show]

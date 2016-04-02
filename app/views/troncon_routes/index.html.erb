@@ -45,16 +45,11 @@
                 <td><%= troncon_route.class_adm %></td>
                 <td><%= troncon_route.longueur %></td>
                 <td><%= link_to 'Montrer', troncon_route %></td>
-                <td><%= link_to 'Éditer', edit_troncon_route_path(troncon_route) %></td>
-                <td><%= link_to 'Supprimer', troncon_route, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %></td>
               </tr>
           <% end %>
           </tbody>
         </table>
 
-        <br>
-
-        <%= link_to 'Nouveau tronçon', new_troncon_route_path %>
       </div>
     </div>
   </div>

@@ -78,12 +78,16 @@ ActiveRecord::Schema.define(version: 20160401145726) do
     t.string   "num_route"
     t.string   "class_adm"
     t.float    "longueur"
-    t.integer  "point_reperes_id"
+    t.integer  "route_id"
+    t.integer  "point_repere_id"
     t.integer  "point_repere_final_id"
     t.integer  "point_repere_init_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
+
+  add_index "troncon_routes", ["route_id", "created_at"], name: "index_troncon_routes_on_route_id_and_created_at"
+  add_index "troncon_routes", ["route_id"], name: "index_troncon_routes_on_route_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "nom"
@@ -108,7 +112,7 @@ ActiveRecord::Schema.define(version: 20160401145726) do
   create_table "works", force: :cascade do |t|
     t.string   "type_work"
     t.text     "description"
-    t.date     "debut",            default: '2016-04-01', null: false
+    t.date     "debut",            default: '2016-04-02', null: false
     t.date     "fin"
     t.string   "intervenant"
     t.integer  "troncon_route_id"

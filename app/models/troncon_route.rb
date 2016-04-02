@@ -1,7 +1,7 @@
 class TronconRoute < ActiveRecord::Base
   belongs_to :point_repere_init, :class_name => "PointRepere"
   belongs_to :point_repere_final, :class_name => "PointRepere"
-  belongs_to :num_route, :class_name => "Route"
+  belongs_to :route
   has_many :works
 
   validates :vocation, presence:true

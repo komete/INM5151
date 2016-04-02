@@ -27,7 +27,7 @@
           <strong>Couleur:</strong>
           <%= @marquage.dimension%>
         </p>
-
+        <%= link_to 'Ajouter un produit', {controller: "produits", action: "new", id: @marquage.id} %>
         <%= link_to 'Retour travail en cours', @work %>
       </div>
     </div>
