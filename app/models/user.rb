@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  actable as: :utilisateur
   attr_accessor :verification_token, :remember_token, :reset_token
   before_create :create_verified_encrypted_token
   before_save :format_email

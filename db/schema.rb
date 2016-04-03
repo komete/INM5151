@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401145726) do
+ActiveRecord::Schema.define(version: 20160403140953) do
+
+  create_table "entrepreneurs", force: :cascade do |t|
+    t.string   "ref_entreprise"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "marquage_lineaires", force: :cascade do |t|
     t.float    "largeur_bande"
@@ -90,6 +96,8 @@ ActiveRecord::Schema.define(version: 20160401145726) do
   add_index "troncon_routes", ["route_id"], name: "index_troncon_routes_on_route_id"
 
   create_table "users", force: :cascade do |t|
+    t.integer  "utilisateur_id"
+    t.string   "utilisateur_type"
     t.string   "nom"
     t.string   "prenom"
     t.string   "email"
@@ -97,22 +105,22 @@ ActiveRecord::Schema.define(version: 20160401145726) do
     t.string   "codeEmploye"
     t.string   "telephone"
     t.string   "username"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "password_digest"
     t.string   "verified_digest"
-    t.boolean  "verified",        default: false
+    t.boolean  "verified",         default: false
     t.datetime "verified_at"
     t.string   "remember_digest"
     t.string   "reset_digest"
     t.datetime "reset_at"
-    t.boolean  "administrateur",  default: false
+    t.boolean  "administrateur",   default: false
   end
 
   create_table "works", force: :cascade do |t|
     t.string   "type_work"
     t.text     "description"
-    t.date     "debut",            default: '2016-04-02', null: false
+    t.date     "debut",            default: '2016-04-03', null: false
     t.date     "fin"
     t.string   "intervenant"
     t.integer  "troncon_route_id"
