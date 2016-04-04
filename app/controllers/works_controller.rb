@@ -10,6 +10,7 @@ class WorksController < ApplicationController
   end
 
   def show
+    @troncon = @work.troncon_route_id
   end
 
   def new
@@ -23,12 +24,20 @@ class WorksController < ApplicationController
 
   def create
     @id = params[:troncon_id]
-    date = params[:work]["debut(1i)"] + "-" +  params[:work]["debut(2i)"]  + "-" +  params[:work]["debut(3i)"]
-    @work = Work.new( :type_work=>params[:work][:type_work],:description=>params[:work][:description],:debut=>date,:fin=>params[:work][:fin],
+    if Entrepreneur.exists?(ref_entreprise: params[:work][:intervenant])
+      date = params[:work]["debut(1i)"] + "-" +  params[:work]["debut(2i)"]  + "-" +  params[:work]["debut(3i)"]
+      @work = Work.new( :type_work=>params[:work][:type_work],:description=>params[:work][:description],:debut=>date,:fin=>params[:work][:fin],
                       :intervenant=>params[:work][:intervenant], :troncon_route_id => @id)
-    @work.save
-    flash[:success] = "Travail créé"
-    redirect_to @work
+      if @work.save
+        flash[:success] = "Travail créé"
+        redirect_to @work
+      else
+        redirect_to controller: "works", action: "new", id: params[:troncon_id].to_s
+      end
+    else
+      flash[:danger] = "L'intervenant n'existe pas"
+      redirect_to controller: "works", action: "new", id: params[:troncon_id].to_s
+    end
   end
 
 

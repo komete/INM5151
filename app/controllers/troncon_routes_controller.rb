@@ -9,7 +9,7 @@ class TronconRoutesController < ApplicationController
   all_application_helpers
 
   before_action :logged_user, only: [:show]
-  before_action :set_troncon_route, only: [:show]
+  before_action :set_troncon_route, only: [:show, :show_travaux]
 
   def select
 
@@ -63,6 +63,10 @@ t
         render pdf: "troncon_route_" + @troncon_route.id.to_s, encoding: "UTF-8"
       end
     end
+  end
+
+  def show_travaux
+
   end
 
   :private

@@ -68,7 +68,8 @@
         </p>
         <%= link_to 'Créer un travail', {controller: "works", action: "new", id: @troncon_route.id} %> |
         <%= link_to 'Retour', troncon_routes_path %> |
-        <%= link_to 'Exporter en pdf', troncon_route_path(:id=>@troncon_route.id, :format => :pdf) %>
+        <%= link_to 'Exporter en pdf', troncon_route_path(:id=>@troncon_route.id, :format => :pdf) %> |
+        <%= link_to 'Liste des travaux', {controller: "troncon_routes", action: "show_travaux", id: @troncon_route} %>
       </div>
     </div>
   </div>

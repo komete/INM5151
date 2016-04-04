@@ -40,7 +40,7 @@
         <%= link_to 'Ajouter marquage',{controller: 'marquages', action: 'new', id: @work}%>
         <%= link_to 'Éditer', edit_work_path(@work) %> |
         <%= link_to 'Retour', works_path %>
-
+        <%= link_to 'Retour au tronçon',{controller: 'troncon_routes', action: 'show_travaux', id: @troncon} %>
       </div>
     </div>
   </div>
