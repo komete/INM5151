@@ -21,8 +21,6 @@
                 menu.addClass('open');
             }
         });
-
-
     });
     var myIndex = 0;
     carousel();

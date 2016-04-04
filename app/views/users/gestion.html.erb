@@ -45,9 +45,9 @@
             <td><%= user.poste %></td>
             <td><%= user.verified %></td>
             <td><%= link_to raw('<i class="fa fa-pencil" style="color: green; font-size: 20px;"></i>'), edit_user_path(user) %>
-              <b style="color: #000; font-size: 30px;">|</b>
+              <b style="color: #000; font-size: 20px;">|</b>
               <%= link_to raw('<i class="fa fa-trash-o" style="color: red; font-size: 20px;"></i>'), user, method: :delete %>
-              <b style="color: #000; font-size: 30px;">|</b>
+              <b style="color: #000; font-size: 20px;">|</b>
               <%= link_to raw('<i class="fa fa-check" style="color: #005ce6;font-size: 20px;"></i>'), user, method: :put %>
             </td>
           </tr>
