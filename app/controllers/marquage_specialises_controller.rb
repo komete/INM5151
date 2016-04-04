@@ -12,6 +12,7 @@ class MarquageSpecialisesController < ApplicationController
   def set_marquage
     @marquage = MarquageSpecialise.find(params[:id])
     id = Marquage.find(params[:id]).work_id
+    @m = Marquage.find(params[:id])
     @work = Work.find(id)
   end
 end

@@ -37,9 +37,22 @@
           <strong>Itervenant:</strong>
           <%= @work.intervenant %>
         </p>
-        <%= link_to 'Ajouter marquage',{controller: 'marquages', action: 'new', id: @work}%>
+        <br>
+        <h4> Liste des marquages</h4>
+        <% @work.marquages.each do |marquage| %>
+            <p>
+              <strong>Type de marquage:</strong>
+              <%= marquage.type_marquage %>
+            </p>
+            <p>
+              <strong>Couleur:</strong>
+              <%= marquage.couleur %>
+            </p>
+        <% end %>
+        <br>
+        <%= link_to 'Ajouter marquage',{controller: 'marquages', action: 'new', id: @work}%> |
         <%= link_to 'Éditer', edit_work_path(@work) %> |
-        <%= link_to 'Retour', works_path %>
+        <%= link_to 'Retour', works_path %> |
         <%= link_to 'Retour au tronçon',{controller: 'troncon_routes', action: 'show_travaux', id: @troncon} %>
       </div>
     </div>
