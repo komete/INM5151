@@ -11,46 +11,37 @@
     <div class="clear"></div>
     <h2 align="center">Liste des tronçons</h2>
     <hr class="pageTitle">
-    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="110%">
       <thead>
       <tr>
-        <th>Vocation</th>
         <th>Nb chausse</th>
         <th>Nb voies</th>
         <th>Etat</th>
-        <th>Acces</th>
         <th>Sens</th>
         <th>Num route</th>
-        <th>Class adm</th>
         <th>Longueur</th>
-        <th colspan="3"></th>
+        <th>Visualiser</th>
       </tr>
       </thead>
       <tfoot>
       <tr>
-        <th>Vocation</th>
         <th>Nb chausse</th>
         <th>Nb voies</th>
         <th>Etat</th>
-        <th>Acces</th>
         <th>Sens</th>
         <th>Num route</th>
-        <th>Class adm</th>
         <th>Longueur</th>
-        <th colspan="3"></th>
+        <th>Visualiser</th>
       </tr>
       </tfoot>
       <tbody align="center">
       <% @troncon_routes.each do |troncon_route| %>
           <tr>
-            <td><%= troncon_route.vocation %></td>
             <td><%= troncon_route.nb_chausse %></td>
             <td><%= troncon_route.nb_voies %></td>
             <td><%= troncon_route.etat %></td>
-            <td><%= troncon_route.acces %></td>
             <td><%= troncon_route.sens %></td>
             <td><%= troncon_route.num_route %></td>
-            <td><%= troncon_route.class_adm %></td>
             <td><%= troncon_route.longueur %></td>
             <td><%= link_to 'Montrer', troncon_route %></td>
           </tr>

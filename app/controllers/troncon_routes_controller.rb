@@ -57,6 +57,12 @@ t
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "troncon_route_" + @troncon_route.id.to_s, encoding: "UTF-8"
+      end
+    end
   end
 
   :private

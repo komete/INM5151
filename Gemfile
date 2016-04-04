@@ -18,8 +18,9 @@ gem 'georuby',     '2.5.2'
 gem 'dbf',         '3.0.5'
 gem 'frontend-generators'
 gem 'iconv'
-#gem 'heritage'
 gem 'active_record-acts_as'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 #gem 'spatial_adapter', '1.2.0'
 
 group :development do
