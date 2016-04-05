@@ -22,7 +22,7 @@ gem 'active_record-acts_as'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'rgeo'
-gem 'rgeo-activerecord'
+#gem 'rgeo-activerecord'
 gem 'rgeo-shapefile'
 gem 'activerecord-spatialite-adapter'
 
