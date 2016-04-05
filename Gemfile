@@ -21,7 +21,17 @@ gem 'iconv'
 gem 'active_record-acts_as'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-#gem 'spatial_adapter', '1.2.0'
+gem 'rgeo'
+gem 'rgeo-activerecord'
+gem 'rgeo-shapefile'
+gem 'activerecord-spatialite-adapter'
+
+# React
+source 'https://rails-assets.org' do
+  gem 'rails-assets-pluralize'
+  gem 'rails-assets-es6-promise'
+  gem 'rails-assets-fetch'
+end
 
 group :development do
   gem 'sqlite3',     '1.3.9'
